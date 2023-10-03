@@ -80,8 +80,12 @@
 
                 const indiceSel = prompt(
                   "¿Qué tarea quieres eliminar?",
-                  "1/2/..."
+                  "1/2/... ('no' para cancelar la operación)"
                 );
+
+                if (indiceSel === "no") {
+                  break;
+                }
 
                 // Llamamos a la función con cada tarea que el usuario desea eliminar
                 eliminarTarea(indiceSel);
@@ -100,6 +104,7 @@
 
             // Opción 4: salir del bucle
             case 4:
+              alert("¡Gracias por usar el programa!")
               bandera = false;
               break;
 
