@@ -16,6 +16,16 @@ Entre ellos tenemos los elementos básicos de JS:
   </ul>
   <li>Rest y spread operator</li>
   <li>...</li>
+  <li>Manejo de errores (try-catch)</li>
+  <li>Prototipos y herencia prototípica</li>
+  <li>Clases</li>
+  <li>Herencia de clases</li>
+  <li>Getter y setter</li>
+  <li>Objetos console, Date y Math</li>
+  <li>Alert, confirm y prompt</li>
+  <li>Expresiones regulares</li>
+  <li>Funciones Anónimas Autoejecutables</li>
+  <li>Import y export de módulos</li>
 </ul>
 
 ### Producción
