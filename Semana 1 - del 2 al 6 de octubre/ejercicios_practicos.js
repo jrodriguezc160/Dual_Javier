@@ -112,3 +112,32 @@
       }
 
       console.log(esCapicua(10003430001));
+
+
+
+      /*
+       * Programa una función que calcule el factorial de un número
+       * (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n)
+       * Pe. miFuncion(5) devolverá 120.
+       */
+
+      const calcFactorial = (numero) => {
+        try {
+          let cadenaNumeros = "";
+          let factorial = 1;
+
+          for (cont = 1; cont <= numero; cont++) {
+            cadenaNumeros += " * " + cont;
+            factorial *= cont;
+          }
+
+          cadenaNumeros = cadenaNumeros.slice(3)
+
+          return `El factorial de ${numero} es igual a ${factorial} (${cadenaNumeros})`
+        } catch {
+            if (numero < 0) console.warn("Debes introducir un número mayor que 0");
+            if (isNaN(numero)) console.error("¡Debes introducir un número!");
+        }
+      };
+
+      console.log(calcFactorial(5));
