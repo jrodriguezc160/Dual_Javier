@@ -122,7 +122,9 @@
        */
 
       const calcFactorial = (numero) => {
-        try {
+          if (numero <= 0) return "¡Debes introducir un número mayor que 0!";
+          if (isNaN(numero)) return "¡Debes introducir un número!";
+
           let cadenaNumeros = "";
           let factorial = 1;
 
@@ -134,10 +136,9 @@
           cadenaNumeros = cadenaNumeros.slice(3)
 
           return `El factorial de ${numero} es igual a ${factorial} (${cadenaNumeros})`
-        } catch {
-            if (numero < 0) console.warn("Debes introducir un número mayor que 0");
-            if (isNaN(numero)) console.error("¡Debes introducir un número!");
-        }
       };
 
-      console.log(calcFactorial(5));
+      console.log(calcFactorial("Hola"));
+
+
+
