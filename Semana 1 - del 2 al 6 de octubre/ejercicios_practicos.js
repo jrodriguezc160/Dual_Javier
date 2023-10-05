@@ -197,7 +197,7 @@
        * Pe. miFuncion(29) devolverá Impar.
        */
 
-      const esPrimo = (numero) => {
+      const esPar = (numero) => {
         if (numero <= 0) return "¡Debes introducir un número mayor que 0!";
         if (isNaN(numero)) return "¡Debes introducir un número!";
 
@@ -205,4 +205,4 @@
         if (numero % 2 !== 0) return `El número ${numero} es impar`;
       };
 
-      console.log(esPrimo(58));
+      console.log(esPar(58));
