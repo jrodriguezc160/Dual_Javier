@@ -81,3 +81,34 @@
 
 
 
+      /*
+       * Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro)
+       * Pe. miFuncion(2002) devolverá true
+       */
+
+      const esCapicua = (numero) => {
+        if (numero < 100) return `Debes introducir un número de más de 2 cifras` 
+        
+        const stringNumeros = numero.toString();
+        const arrayNumeros = stringNumeros.split("");
+
+        // return arrayNumeros;
+
+        const mitad = Math.floor(arrayNumeros.length / 2);
+        let inicio = 0, final = (arrayNumeros.length - 1);
+        let bandera = true;
+
+        console.log(mitad)
+
+        for (cont = 0; cont < mitad; cont ++, inicio ++, final --) {
+          if (arrayNumeros[inicio] !== arrayNumeros[final]) bandera = false;
+        }
+
+        if (bandera === true) {
+          return `El número ${numero} es capicúa.`
+        } else {
+          return `El número ${numero} NO es capicúa`
+        }
+      }
+
+      console.log(esCapicua(10003430001));
