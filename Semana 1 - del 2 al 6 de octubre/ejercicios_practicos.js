@@ -14,6 +14,7 @@
       contarCaracteres("Hola");
 
 
+
       /*
        * Programa una función que te devuelva el texto recortado según el número de caracteres indicados
        * Pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
@@ -29,3 +30,27 @@
       }
 
       contarCaracteres("Hola mundo", 4);
+
+
+
+      /*
+       * Programa una función que dada un String te devuelva un Array de textos separados por cierto caracter
+       * Pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+       */
+
+      function contarCaracteres(cadena, separacion) {
+        if (typeof cadena !== "string") {
+          console.error(`¡Debes introducir una cadena!`);
+        } else {
+          const arrayTexto = cadena.split(separacion);
+          console.log(arrayTexto);
+        }
+      }
+
+      contarCaracteres(
+        "Hola mundo, esto es una cadena convertida en array",
+        " "
+      );
+
+
+
