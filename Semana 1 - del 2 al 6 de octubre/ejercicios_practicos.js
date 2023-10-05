@@ -189,3 +189,20 @@
       };
 
       console.log(esPrimo(57));
+
+
+
+      /*
+       * Programa una función que determine si un número es par o impar
+       * Pe. miFuncion(29) devolverá Impar.
+       */
+
+      const esPrimo = (numero) => {
+        if (numero <= 0) return "¡Debes introducir un número mayor que 0!";
+        if (isNaN(numero)) return "¡Debes introducir un número!";
+
+        if (numero % 2 === 0) return `El número ${numero} es par`;
+        if (numero % 2 !== 0) return `El número ${numero} es impar`;
+      };
+
+      console.log(esPrimo(58));
