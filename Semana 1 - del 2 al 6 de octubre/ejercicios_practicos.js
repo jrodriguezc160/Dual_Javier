@@ -235,3 +235,78 @@
       };
 
       console.log(conversorGrados("32", "X"));
+
+
+
+      /*
+       * Programa una función para convertir números de base binaria a decimal y viceversa
+       * Pe. miFuncion(100,2) devolverá 4 base 10.
+       */
+
+      // Definición de la función conversorBinDec que toma un número y una base como argumentos
+      const conversorBinDec = (numero, base) => {
+        // Verifica si el número ingresado no es un número válido
+        if (isNaN(numero)) return "¡Debes introducir un número!";
+
+        // Inicializa un array para almacenar los cálculos intermedios
+        let arrayConversor = [];
+
+        // Convertimos el número a una cadena de texto y dividimos la cadena en un array de caracteres individuales
+        let numeroString = numero.toString();
+        let arrayNumero = numeroString.split("");
+
+        // Utiliza un switch para determinar la base de origen y realizar la conversión
+        switch (base) {
+          // Conversión binaria a decimal
+          case 2:
+            for (let i = arrayNumero.length - 1, j = 0; i >= 0; i--, j++) {
+              // Calcula cada dígito multiplicado por la potencia de 2 correspondiente
+              arrayConversor[i] = arrayNumero[i] * Math.pow(2, j);
+            }
+
+            // Suma los valores del array para obtener el resultado decimal
+            let conversionBD = 0;
+            for (let i = 0; i < arrayConversor.length; i++)
+              conversionBD += arrayConversor[i];
+
+            // Retorna el resultado de la conversión
+            return `${numero} en base binaria es igual a ${conversionBD} en base decimal`;
+            break;
+
+          // Conversión decimal a binaria
+          case 10:
+            let cociente = numero,
+              restos = [],
+              cont = 0;
+
+            // Realiza la división sucesiva por 2 y almacena los restos
+            while (cociente != 0) {
+              restos[cont] = cociente % 2;
+              cont++;
+
+              cociente = Math.floor(cociente / 2);
+            }
+
+            // Inicializa la representación binaria con un "0"
+            let conversionDB = "0";
+
+            // Concatena los restos en orden inverso para obtener el resultado binario
+            for (let i = restos.length - 1; i >= 0; i--)
+              conversionDB += restos[i];
+
+            // Elimina el "0" inicial agregado
+            conversionDB = conversionDB.slice(1);
+
+            // Retorna el resultado de la conversión
+            return `${numero} en base decimal es igual a ${conversionDB} en base binaria`;
+            break;
+
+          default:
+            // En caso de que la base no sea 2 ni 10, muestra un mensaje de error
+            console.error("ERROR: Introduce una base válida");
+            break;
+        }
+      };
+
+      // Ejemplo de uso de la función: convierte el número 13 de base 10 a binaria
+      console.log(conversorBinDec(13, 10));
