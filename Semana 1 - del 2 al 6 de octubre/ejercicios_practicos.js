@@ -331,3 +331,35 @@
 
       // Ejemplo de uso de la función: convierte el número 13 de base 10 a binaria
       console.log(calcDescuentos(1000, 50));
+
+
+
+      const calcTiempo = (dia, mes, año) => {
+        // Verifica si el número ingresado no es un número válido
+        if (isNaN(dia) || isNaN(mes) || isNaN(año))
+          return "¡Debes introducir un número!";
+
+        let fechaActual = new Date();
+        let diaActual = fechaActual.getDate();
+        let mesActual = fechaActual.getMonth() + 1; // Meses en JavaScript van de 0 a 11, por lo que sumamos 1.
+        let añoActual = fechaActual.getFullYear();
+
+        // Calcula la diferencia en milisegundos entre la fecha proporcionada y la fecha actual
+        let diferenciaMilisegundos = fechaActual - new Date(año, mes - 1, dia);
+
+        // Convierte la diferencia de milisegundos a días, meses y años
+        let milisegundosEnUnDia = 1000 * 60 * 60 * 24;
+        let diferenciaDias = Math.floor(
+          diferenciaMilisegundos / milisegundosEnUnDia
+        );
+        let diferenciaMeses = mesActual - mes + 12 * (añoActual - año);
+        let diferenciaAños = Math.floor(diferenciaDias / 365);
+
+        // Calcula el número de días restantes después de calcular los meses y años
+        let diasRestantes = diferenciaDias - diferenciaAños * 365;
+
+        return `Hay una diferencia de ${diferenciaAños} años, ${diferenciaMeses} meses y ${diasRestantes} días.`;
+      };
+
+      // Ejemplo de uso de la función
+      console.log(calcTiempo(4, 10, 2023));
