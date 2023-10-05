@@ -20,7 +20,7 @@
        * Pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
        */
 
-      function contarCaracteres(cadena, recorte) {
+      function recortarTexto(cadena, recorte) {
         if (typeof cadena !== "string") {
           console.error(`¡Debes introducir una cadena!`);
         } else {
@@ -29,7 +29,7 @@
         }
       }
 
-      contarCaracteres("Hola mundo", 4);
+      recortarTexto("Hola mundo", 4);
 
 
 
@@ -38,7 +38,7 @@
        * Pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
        */
 
-      function contarCaracteres(cadena, separacion) {
+      function stringToArray(cadena, separacion) {
         if (typeof cadena !== "string") {
           console.error(`¡Debes introducir una cadena!`);
         } else {
@@ -47,7 +47,7 @@
         }
       }
 
-      contarCaracteres(
+      stringToArray(
         "Hola mundo, esto es una cadena convertida en array",
         " "
       );
