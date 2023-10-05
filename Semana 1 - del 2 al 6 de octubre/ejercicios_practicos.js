@@ -363,3 +363,26 @@
 
       // Ejemplo de uso de la función
       console.log(calcTiempo(4, 10, 2023));
+
+
+
+      /*
+       * Programa una función que invierta las palabras de una cadena de texto
+       * Pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+       */
+
+      const invertirCadena = (cadenaOriginal) => {
+        let arrayCadena = [], cadenaInvertida = "";
+        arrayCadena = cadenaOriginal.split("");
+
+        for (i = arrayCadena.length; i >= 0; i--) {
+          cadenaInvertida += arrayCadena[i];
+        }
+
+        return cadenaInvertida;
+      };
+
+      console.log(invertirCadena("Hola Mundo"));
+
+
+
