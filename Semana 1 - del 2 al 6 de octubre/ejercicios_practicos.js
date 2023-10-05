@@ -310,3 +310,24 @@
 
       // Ejemplo de uso de la función: convierte el número 13 de base 10 a binaria
       console.log(conversorBinDec(13, 10));
+
+
+
+      /*
+       * Programa una función que devuelva la cantidad final después de aplicar un descuento a una cantidad dada
+       * Pe. miFuncion(1000, 20) devolverá 800.
+       */
+
+      const calcDescuentos = (cantidad, porcentaje) => {
+        // Verifica si el número ingresado no es un número válido
+        if (isNaN(cantidad) || isNaN(porcentaje)) return "¡Debes introducir un número!";
+
+        let descuento = cantidad * (porcentaje / 100);
+
+        let cantidadFinal = cantidad - descuento;
+
+        return `Descontando un ${porcentaje}% a ${cantidad} nos queda ${cantidadFinal}`;
+      };
+
+      // Ejemplo de uso de la función: convierte el número 13 de base 10 a binaria
+      console.log(calcDescuentos(1000, 50));
