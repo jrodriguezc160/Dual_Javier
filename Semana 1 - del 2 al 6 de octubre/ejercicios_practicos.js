@@ -142,3 +142,25 @@
 
 
 
+      /*
+       * Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no
+       * Pe. miFuncion(7) devolverá true.
+       */
+
+      const esPrimo = (numero) => {
+          if (numero <= 0) return "¡Debes introducir un número mayor que 0!";
+          if (isNaN(numero)) return "¡Debes introducir un número!";
+
+          let bandera = true;
+          const mitad = Math.floor(numero/2);
+          let divisible = 0;
+
+          for (cont = 2 ; cont <= mitad; cont++) {
+            if (numero%cont === 0) bandera = false, divisible = cont;
+          }
+
+          if (bandera) return `El número ${numero} es primo`
+          if (bandera === false) return `El número ${numero} NO es primo (es divisible entre ${divisible})`
+      };
+
+      console.log(esPrimo(57));
