@@ -429,3 +429,19 @@
       };
 
       console.log(esPalindromo("Salas"));
+
+
+
+      /*
+       * Programa una función que elimine cierto patrón de caracteres de un texto dado
+       * Pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+       */
+
+      const delPatron = (cadena, patron) => {
+        let expresionRegular = new RegExp(`${patron}`, 'g'); // g para buscar todas las coincidencias
+        let resultado = cadena.replace(expresionRegular, "");
+
+        return `${resultado}`;
+      };
+
+      console.log(delPatron("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
