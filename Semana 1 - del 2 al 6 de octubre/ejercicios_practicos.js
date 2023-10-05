@@ -206,3 +206,32 @@
       };
 
       console.log(esPar(58));
+
+
+
+      /*
+       * Programa una función para convertir grados Celsius a Fahrenheit y viceversa
+       * Pe. miFuncion(0,"C") devolverá 32°F.
+       */
+
+      const conversorGrados = (numero, grados) => {
+        if (isNaN(numero)) return "¡Debes introducir un número!";
+
+        switch (grados) {
+          case "F":
+            let conversionF = numero - 32;
+            return `${numero}º${grados} => ${conversionF}ºC`;
+            break;
+
+          case "C":
+            let conversionC = numero + 32;
+            return `${numero}º${grados} => ${conversionC}ºF`;
+            break;
+
+          default:
+            console.error("ERROR: Introduce una unidad válida");
+            break;
+        }
+      };
+
+      console.log(conversorGrados("32", "X"));
