@@ -400,3 +400,32 @@
       };
 
       console.log(contarRepeticiones("Hola mundo adiós mundo qué tal mundo", "mundo"));
+
+
+
+      /*
+       * Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro)
+       * Pe. mifuncion("Salas") devolverá true.
+       */
+
+      const esPalindromo = (cadena) => {
+        
+        let cadenaOriginal = cadena;
+
+        cadena = cadena.trim();
+        cadena = cadena.toLowerCase();
+
+        let arrayCadena = [];
+        arrayCadena = cadena.split("");
+
+        let cadenaInvertida = "";
+
+        for (i = arrayCadena.length -1; i >= 0; i--) {
+          cadenaInvertida += arrayCadena[i];
+        }
+
+        if (cadena === cadenaInvertida) return `"${cadenaOriginal}" es un palíndromo`
+        if (cadena !== cadenaInvertida) return `"${cadenaOriginal}" NO es un palíndromo`
+      };
+
+      console.log(esPalindromo("Salas"));
