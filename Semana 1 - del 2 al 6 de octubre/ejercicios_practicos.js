@@ -386,3 +386,17 @@
 
 
 
+      /*
+       * Programa una función para contar el número de veces que se repite una palabra en un texto largo
+       * Pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+       */
+
+      const contarRepeticiones = (cadena, palabra) => {
+        
+        let expresionRegular = new RegExp(`\\b${palabra}\\b`, 'g')
+        const contador = (cadena.match(expresionRegular) || []).length;
+
+        return `La palabra "${palabra}" ha sido encontrada ${contador} veces.`;
+      };
+
+      console.log(contarRepeticiones("Hola mundo adiós mundo qué tal mundo", "mundo"));
