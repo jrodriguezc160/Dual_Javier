@@ -12,3 +12,20 @@
       }
 
       contarCaracteres("Hola");
+
+
+      /*
+       * Programa una función que te devuelva el texto recortado según el número de caracteres indicados
+       * Pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+       */
+
+      function contarCaracteres(cadena, recorte) {
+        if (typeof cadena !== "string") {
+          console.error(`¡Debes introducir una cadena!`);
+        } else {
+          cadena = cadena.slice(0, recorte);
+          console.log(`-> ${cadena}`);
+        }
+      }
+
+      contarCaracteres("Hola mundo", 4);
