@@ -54,3 +54,25 @@
 
 
 
+      /*
+       * Programa una función que repita un texto X veces
+       * Pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+       */
+
+      function repetirTexto(cadena, repeticion) {
+        if (typeof cadena !== "string") {
+          console.error(`¡Debes introducir una cadena!`);
+        } else {
+          let cadenaInicial = cadena;
+
+          for (let index = 1; index < repeticion; index++) {
+            cadena += " " + cadenaInicial;
+          }
+          console.log(cadena);
+        }
+      }
+
+      repetirTexto("Hola mundo", 3);
+
+
+
