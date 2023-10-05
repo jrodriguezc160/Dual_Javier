@@ -59,19 +59,14 @@
        * Pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
        */
 
-      function repetirTexto(cadena, repeticion) {
-        if (typeof cadena !== "string") {
-          console.error(`¡Debes introducir una cadena!`);
-        } else {
-          let cadenaInicial = cadena;
+      const repetirTexto = (cadena, repeticion) => {
+        if (typeof cadena !== "string") return console.error(`¡Debes introducir una cadena!`);
+        if (isNaN(repeticion)) return console.error(`¡Debes introducir un número!`);
+        if (repeticion <= 0) return console.error(`¡Debes introducir un número mayor que 0!`);
 
-          for (let index = 1; index < repeticion; index++) {
-            cadena += " " + cadenaInicial;
-          }
-          console.log(cadena);
-        }
-      }
-
+        for (i = 1; i <= repeticion; i++) console.log(`${i} - ${cadena}`)
+      };
+    
       repetirTexto("Hola mundo", 3);
 
 
