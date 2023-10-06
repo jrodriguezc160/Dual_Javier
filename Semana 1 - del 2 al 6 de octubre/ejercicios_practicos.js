@@ -445,3 +445,31 @@
       };
 
       console.log(delPatron("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
+
+
+
+      /*
+       * Programa una función que dada una cadena de texto cuente el número de vocales y consonantes
+       * Pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+       */
+
+      const cuentaLetras = (cadena) => {
+        // Buscamos las vocales
+        let expresionRegular = new RegExp(/[aeiouAEIOU]/g); // g para buscar todas las coincidencias
+        let contVocales = (cadena.match(expresionRegular || [] )).length;
+
+        // Para las consonantes:
+        let contTotal = cadena.length; // Longitud total de la cadena
+
+        // Buscamos los espacios, comas, puntos... y los restamos a la longitud de la cadena
+        let expresionRegular2 = new RegExp(/[ .,;()]/g);
+        let contEspCar = (cadena.match(expresionRegular2 || [])).length;
+        contTotal -= contEspCar;
+
+        // El número de vocales es la longitud de la cadena - los caracteres especiales - las vocales
+        let contConsonantes = contTotal - contVocales
+
+        return `Vocales: ${contVocales} | Consonantes: ${contConsonantes}`;
+      };
+
+      console.log(cuentaLetras("Hola mundo"));
