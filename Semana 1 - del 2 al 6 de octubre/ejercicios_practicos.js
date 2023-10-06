@@ -633,3 +633,24 @@
       };
 
       console.log(ascDes([1, 2, "x", 2, 5, 6, 8, 4, 6, "j", 5, 1, "j", 9,7,11]));
+
+
+
+      /*
+       * Programa una función que dado un arreglo de números obtenga el promedio
+       * Pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+       */
+
+      const promedio = (array) => {
+        let suma = 0;
+
+        for (let i = 0; i < array.length; i++) {
+          suma += array[i];
+        }
+
+        let promedio = suma / array.length;
+
+        return `Promedio: ${promedio}`;
+      };
+
+      console.log(promedio([2, 6]));
