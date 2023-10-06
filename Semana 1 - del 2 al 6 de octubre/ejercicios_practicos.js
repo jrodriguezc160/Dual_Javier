@@ -491,3 +491,21 @@
       };
 
       console.log(validarNombre("Eduardo Camavinga"));
+
+
+
+      /*
+       * Programa una función que valide que un texto sea un email válido
+       * Pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+       */
+
+      const validarEmail = (email) => {
+        // Buscamos las vocales
+        let expresionRegular = /^[a-z0123456789._]+[@]+[a-z]+[.]+[a-z]+$/g.test(email);
+
+        return (expresionRegular)
+        ? console.info(`El email "${email}" es válido`)
+        : console.warn(`El email "${email}" NO es válido`)
+      };
+
+      console.log(validarEmail("camavinga@gmail.com"));
