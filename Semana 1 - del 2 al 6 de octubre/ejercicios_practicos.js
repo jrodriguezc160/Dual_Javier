@@ -612,3 +612,24 @@
       };
 
       console.log(ascDes([1, 4, 2, 9, 7, 3, 8, 5, 6]));
+
+
+
+      /*
+       * Programa una función que dado un arreglo de elementos, elimine los duplicados
+       * Pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+       */
+
+      const ascDes = (array) => {
+        let arrayDuplicados = [...array];
+
+        for (let i = 0; i < array.length - 1; i++) {
+          for (let j = i + 1; j < arrayDuplicados.length - 1; j++) {
+            if (array[i] == arrayDuplicados[j]) array.splice(j, 1), arrayDuplicados = [...array];
+          }
+        }
+
+        return `Array sin duplicados: ${array}`;
+      };
+
+      console.log(ascDes([1, 2, "x", 2, 5, 6, 8, 4, 6, "j", 5, 1, "j", 9,7,11]));
