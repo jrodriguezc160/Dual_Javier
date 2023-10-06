@@ -546,3 +546,26 @@
       };
 
       console.log(maxMin([1,4,2,9,7,3]));
+
+
+
+      /*
+       * Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares
+       * Pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+       */
+
+      const parImpar = (array) => {
+
+        let cadenaPares = "", cadenaImpares = "";
+        for (i = 0; i < array.length; i++) {
+          if (array[i] % 2 === 0) cadenaPares += array[i]
+          if (array[i] % 2 !== 0) cadenaImpares += array[i]
+        }
+
+        const pares = cadenaPares.split("");
+        const impares = cadenaImpares.split("");
+
+        return (`Pares: ${pares} | Impares: ${impares}`)
+      };
+
+      console.log(parImpar([1,4,2,9,7,3,8]));
