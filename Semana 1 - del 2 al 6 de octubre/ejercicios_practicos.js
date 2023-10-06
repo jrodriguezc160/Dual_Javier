@@ -473,3 +473,21 @@
       };
 
       console.log(cuentaLetras("Hola mundo"));
+
+
+
+      /*
+       * Programa una función que valide que un texto sea un nombre válido
+       * Pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+       */
+
+      const validarNombre = (nombre) => {
+        // Buscamos las vocales
+        let expresionRegular = /^[A-Za-z\s]+$/g.test(nombre);
+
+        return (expresionRegular)
+        ? console.info(`El nombre "${nombre}" es válido`)
+        : console.warn(`El nombre "${nombre}" NO es válido`)
+      };
+
+      console.log(validarNombre("Eduardo Camavinga"));
