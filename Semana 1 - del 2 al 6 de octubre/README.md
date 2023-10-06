@@ -30,3 +30,6 @@ Entre ellos tenemos los elementos básicos de JS:
 
 ### Producción
 Por otro lado, a raíz de los vídeos propuestos hemos desarrollado un pequeño programa utilizando varias funciones, bucles, un menú, alerts, prompts y el operador spread. En mi caso, el programa se trata de una lista de tareas sencilla en la que el usuario puede añadir tareas, eliminarlas y visualizarlas. Es un programa muy sencillo en el que todavía no integramos el JS con el HTML pero nos sirvió para afianzar los conocimientos y ganar confianza tan solo en el segundo día en la empresa.
+
+### Ejercicios
+Por último, hemos realizado una serie de ejercicios prácticos propuestos en los vídeos que nos proporcionó la empresa. Así, hemos pasado los últimos días de la semana repasando todos los contenidos dados anteriormente gracias a estos ejercicios prácticos que nos han ayudado a afianzar nuestros conocimientos y a ganar confianza programando.
