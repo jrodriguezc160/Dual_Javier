@@ -569,3 +569,46 @@
       };
 
       console.log(parImpar([1,4,2,9,7,3,8]));
+
+
+
+      /*
+       * Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos
+       * El primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente
+       * Pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+       */
+
+      const ascDes = (array) => {
+        let ascendente = [...array],
+          descendiente = [...array];
+
+        let swapped;
+
+        do {
+          swapped = false;
+          for (let i = 0; i < ascendente.length - 1; i++) {
+            if (ascendente[i + 1] < ascendente[i]) {
+              let temp = ascendente[i];
+              ascendente[i] = ascendente[i + 1];
+              ascendente[i + 1] = temp;
+              swapped = true;
+            }
+          }
+        } while (swapped);
+
+        do {
+          swapped = false;
+          for (let i = 0; i < descendiente.length - 1; i++) {
+            if (descendiente[i + 1] > descendiente[i]) {
+              let temp = descendiente[i];
+              descendiente[i] = descendiente[i + 1];
+              descendiente[i + 1] = temp;
+              swapped = true;
+            }
+          }
+        } while (swapped);
+
+        return `Ascendente: ${ascendente} | Descendiente: ${descendiente}`;
+      };
+
+      console.log(ascDes([1, 4, 2, 9, 7, 3, 8, 5, 6]));
