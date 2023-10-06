@@ -509,3 +509,20 @@
       };
 
       console.log(validarEmail("camavinga@gmail.com"));
+
+
+
+      /*
+       * Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado
+       * Pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+       */
+
+      const elevarArray = (array) => {
+
+        let arrayElevado = [];
+        for (i = 0; i < array.length; i++) arrayElevado[i] = Math.pow(array[i], 2);
+
+        return (arrayElevado)
+      };
+
+      console.log(elevarArray([1,4,5]));
