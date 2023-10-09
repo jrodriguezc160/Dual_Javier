@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pruebas JS</title>
+  </head>
+
+  <body>
+    <h1>JavaScript</h1>
+    <script>
+      // Declaramos el array que guarda las tareas
+      let tareas = [];
+
+      // Función para guardar nuevas tareas
+      function agregarTarea(nuevaTarea) {
+        // Al interactuar con el usuario se guardan las tareas nuevas en un array y después se meten de una en una en el array principal con el spread operator
+        tareas.push(...nuevaTarea);
+        alert("\nTarea agregada...");
+        mostrarTareas();
+      }
+
+      // Función para eliminar tareas
+      function eliminarTarea(indice) {
+        tareas.splice(indice, 1); // En esta función se recogen los índices de las tareas de uno en uno y se llama a la función cada vez que se vaya a eliminar uno
+        alert("\nTarea eliminada...");
+      }
+
+      // Función para mostrar tareas
+      function mostrarTareas() {
+        let cadena = ""; // Definimos la cadena en la que se imprimen las tareas creadas
+
+        // El bucle recorremos el array y vamos guardando cada tarea junto con su índice dentro de la cadena
+        tareas.forEach((element, index) => {
+          cadena += index + " - " + element + "\n";
+        });
+
+        // La función retorna una cadena que luego imprimimos en los prompt y los alert
+        return cadena;
+      }
+
+      // Declaramos la bandera
+      let bandera = true;
+
+      // Bucle en el que guardamos el menú contextual
+      while (bandera) {
+        const opcionString = prompt(
+          "Elija una opción:\n1) Agregar tareas\n2) Eliminar tareas\n3) Mostrar tareas\n4) Salir"
+        );
+
+        // Nos cercioramos de que la opción seleccionada es válida
+        if (isNaN(opcionString)) {
+          alert("ERROR:\nIntroduce un número del 1 al 4");
+        } else {
+          // Convertimos la opción seleccionada de String a Number
+          const opcion = parseInt(opcionString);
+
+          switch (opcion) {
+            // Opción 1: añadir tareas
+            case 1:
+              let nuevasTareas = []; // Vamos a guardar las tareas en un array que después vamos a pasar a la función agregarTarea()
+              let seguir = ""; // Bandera
+              do {
+                const tareaSel = prompt("Escribe la nueva tarea...");
+                nuevasTareas.push(tareaSel); // Añadimos la tarea al array que después pasamos a la función
+
+                seguir = prompt("¿Quieres agregar otra tarea?", "si/no");
+              } while (seguir === "si");
+
+              // Llamamos a la función pasándole el array que contiene las nuevas tareas
+              agregarTarea(nuevasTareas);
+              break;
+
+            // Opción 2: eliminar tareas
+            case 2:
+              let bandera2 = ""; // Bandera
+              do {
+                let listaDeTareas = mostrarTareas(); // Primero mostramos las tareas ya creadas con sus índices para que el usuario decida cuál eliminar
+                alert("Estas son tus tareas:\n" + listaDeTareas);
+
+                const indiceSel = prompt(
+                  "¿Qué tarea quieres eliminar?",
+                  "1/2/... ('no' para cancelar la operación)"
+                );
+
+                if (indiceSel === "no") {
+                  break;
+                }
+
+                // Llamamos a la función con cada tarea que el usuario desea eliminar
+                eliminarTarea(indiceSel);
+                bandera2 = prompt("¿Quieres eliminar otra tarea?", "si/no");
+              } while (bandera2 === "si");
+              break;
+
+            // Opción 3: mostrar tareas
+            case 3:
+              // Guardamos el output de la función mostrarTareas() en una variable
+              let listaDeTareas = mostrarTareas();
+
+              // Imprimimos la variable dentro de la alerta
+              alert("Estas son tus tareas:\n" + listaDeTareas);
+              break;
+
+            // Opción 4: salir del bucle
+            case 4:
+              alert("¡Gracias por usar el programa!")
+              bandera = false;
+              break;
+
+            // Default: cuando el usuario introduce una opción no válida...
+            default:
+              alert("Por favor, introduce un número del 1 al 4.");
+              break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
