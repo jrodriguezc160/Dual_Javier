@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pruebas JS</title>
+  </head>
+
+  <body>
+    <h1>JavaScript</h1>
+    <script>
+      /*
+        Programa una clase llamada Pelicula.
+
+        La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB,
+        titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+          - Todos los datos del objeto son obligatorios.
+          - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
+            7 restantes números.
+          - Valida que el título no rebase los 100 caracteres.
+          - Valida que el director no rebase los 50 caracteres.
+          - Valida que el año de estreno sea un número entero de 4 dígitos.
+          - Valida que el país o paises sea introducidos en forma de arreglo.
+          - Valida que los géneros sean introducidos en forma de arreglo.
+          - Valida que los géneros introducidos esten dentro de los géneros aceptado*.
+          - Crea un método estático que devuelva los géneros aceptados.
+          - Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
+          - Crea un método que devuelva toda la ficha técnica de la película.
+          - Apartir de un arreglo con la información de 3 películas genera 3
+            instancias de la clase de forma automatizada e imprime la ficha técnica
+            de cada película.
+
+        Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary,
+        Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV,
+        Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+      */
+
+      class Pelicula {
+        constructor({
+          id,
+          titulo,
+          director,
+          estreno,
+          pais,
+          generos,
+          calificacion = 5,
+        }) {
+          this.id = id;
+          this.titulo = titulo;
+          this.director = director;
+          this.estreno = estreno;
+          this.pais = pais;
+          this.generos = generos;
+          this.calificacion = calificacion;
+
+          this.validarIMDB(id);
+          this.validarTitulo(titulo);
+          this.validarDirector(director);
+          this.validarEstreno(estreno);
+          this.validarPais(pais);
+          this.validarGeneros(generos);
+          this.validarCalificacion(calificacion);
+        }
+
+        static get listaGeneros() {
+          return [
+            "Action",
+            "Adult",
+            "Adventure",
+            "Animation",
+            "Biography",
+            "Comedy",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Family",
+            "Fantasy",
+            "Film Noir",
+            "Game-Show",
+            "History",
+            "Horror",
+            "Musical",
+            "Music",
+            "Mystery",
+            "News",
+            "Reality-TV",
+            "Romance",
+            "Sci-Fi",
+            "Short",
+            "Sport",
+            "Talk-Show",
+            "Thriller",
+            "War",
+            "Western",
+          ];
+        }
+
+        static generosAceptados() {
+          return console.info(
+            `Los géneros aceptados son: ${Pelicula.listaGeneros.join(", ")}`
+          );
+        }
+
+        validarCadena(propiedad, valor) {
+          if (!valor) return console.warn(`${propiedad} "${valor}" está vacío`);
+          if (typeof valor !== "string")
+            return console.error(
+              `ERROR: ${propiedad} "${valor}" ingresado NO es una cadena de texto`
+            );
+          return true;
+        }
+
+        validarLongitud(propiedad, cadena, longitud) {
+          if (cadena.length > longitud)
+            return console.error(
+              `ERROR: ${propiedad} excede el número de caracteres permitidos (${longitud})`
+            );
+
+          return true;
+        }
+
+        validarIMDB(id) {
+          if (this.validarCadena("IMDB id", id))
+            if (!/^([a-z]){2}([0-9]){7}$/.test(id))
+              return console.error(
+                `ERROR: El IMDB id introducido no es válido.\nEste es un ejemplo de un IMDB id válido: "tt1234567"`
+              );
+        }
+
+        validarTitulo(titulo) {
+          if (this.validarCadena("Título", titulo))
+            this.validarLongitud("Título", titulo, 100);
+        }
+
+        validarDirector(director) {
+          if (this.validarCadena("Director", director))
+            this.validarLongitud("Director", director, 50);
+        }
+
+        validarEstreno(estreno) {
+          if (typeof estreno !== "number")
+            return console.error(
+              `ERROR: La fecha de estreno introducida no es válida. Debes introducir un número`
+            );
+          if (!/^([0-9]){4}$/.test(estreno))
+            return console.error(
+              `ERROR: La fecha de estreno "${estreno}" no debe superar los 4 dígitos.`
+            );
+        }
+
+        validarPais(pais) {
+          if (!Array.isArray(pais))
+            return console.error(
+              `ERROR: Los países "${pais}" no están introducidos en forma de array.`
+            );
+
+          for (let cadena of pais) {
+            if (typeof cadena !== "string")
+              return console.error(
+                `ERROR: El valor "${cadena}" no es una cadena de texto.`
+              );
+          }
+        }
+
+        validarGeneros(generos) {
+          if (!Array.isArray(generos))
+            return console.error(
+              `ERROR: Los géneros "${generos}" no están introducidos en forma de array.`
+            );
+
+          let bandera = false;
+
+          for (let cadena of generos) {
+            bandera = false;
+            for (let genero of Pelicula.listaGeneros) {
+              if (cadena === genero) bandera = true;
+            }
+
+            if (bandera === false)
+              return console.warn(
+                `ERROR: El valor "${cadena}" no es uno de los géneros aceptados.`
+              );
+          }
+        }
+
+        validarCalificacion(calificacion) {
+          if (isNaN(calificacion))
+            return console.error(
+              `ERROR: La calificacion introducida no es válida. Debes introducir un número del 0 al 10.`
+            );
+          if (!/^(10(\.0)?|[0-9](\.\d)?)$/.test(calificacion))
+            return console.error(
+              `ERROR: La calificación "${calificacion}" no es válida: debe ser un número del 0 al 10 con un decimal.`
+            );
+        }
+
+        fichaTecnica() {
+          return console.info(
+            `FICHA TÉCNICA
+            \nTítulo: "${this.titulo}"
+            \nDirector: "${this.director}"
+            \nAño de estreno: "${this.estreno}"
+            \nPaíses: "${this.pais.join(", ")}"
+            \nGéneros: "${this.generos.join(", ")}"
+            \nCalificación: "${this.calificacion}"
+            \nIMDB id: "${this.id}"`
+          );
+        }
+      }
+
+      const misPelis = [
+        {
+          id: "tt1234567",
+          titulo: "Bones And All",
+          director: "Luca Guadagnino",
+          estreno: 2022,
+          pais: ["USA"],
+          generos: ["Adventure", "Horror"],
+          calificacion: 9.2,
+        },
+        {
+          id: "tt1234561",
+          titulo: "Eyes Wide Shut",
+          director: "Stanley Kubrick",
+          estreno: 1999,
+          pais: ["USA"],
+          generos: ["Thriller", "Horror"],
+          calificacion: 9.6,
+        },
+        {
+          id: "tt1234562",
+          titulo: "The Breakfast Club",
+          director: "John Hughes",
+          estreno: 1985,
+          pais: ["USA"],
+          generos: ["Adventure", "Drama"],
+          calificacion: 9.3,
+        }
+      ];
+
+      misPelis.forEach((el) => new Pelicula(el).fichaTecnica());
+    </script>
+  </body>
+</html>
