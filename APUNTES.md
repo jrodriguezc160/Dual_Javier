@@ -994,15 +994,17 @@ Este ejemplo muestra cómo crear un `WeakMap`, asignar valores a objetos, recupe
 
 <br>
 
-### Iterables e Iteradores en JavaScript
+### Iterables e Iteradores en JavaScript y Generadores
 
-En JavaScript, los iterables y los iteradores son conceptos que nos permiten recorrer secuencias de datos, como arreglos o estructuras personalizadas. Aquí tienes una descripción general de su uso:
+En JavaScript, los iterables, iteradores y generadores son conceptos que nos permiten trabajar con secuencias de datos de manera efectiva. Aquí tienes una descripción general de su uso con ejemplos:
+
+#### Iterables e Iteradores:
 
 - **Iterables**: Son objetos que tienen un método `Symbol.iterator` que devuelve un objeto iterador. Los iterables pueden ser recorridos con un bucle `for...of`.
 
 - **Iteradores**: Son objetos que implementan el método `next()`, que devuelve un objeto con dos propiedades: `value` (el valor actual) y `done` (un indicador de finalización).
 
-#### Ejemplo:
+**Ejemplo**:
 
 ```javascript
 // Creamos un arreglo llamado 'iterable' con números del 1 al 5.
@@ -1027,13 +1029,11 @@ while (!next.done) { // Iniciamos un bucle mientras haya elementos en el iterabl
 
 Este ejemplo muestra cómo crear un iterable a partir de un arreglo y cómo acceder a su iterador. Luego, recorremos el iterable utilizando el iterador y mostramos los valores en la consola.
 
-<br>
+#### Generadores:
 
-### Generadores, Iterables e Iteradores en JavaScript
+Los generadores son una característica poderosa que permite crear secuencias de datos de manera eficiente. Facilitan la manipulación y recorrido de estos datos de forma controlada.
 
-En JavaScript, los generadores son una poderosa característica que permite crear secuencias de datos de manera eficiente. Junto con los iterables e iteradores, facilitan la manipulación y recorrido de estos datos de forma controlada. A continuación, se presenta una descripción general de su uso con dos ejemplos:
-
-#### Ejemplo 1: Generador Simple
+##### Ejemplo 1: Generador Simple
 
 ```javascript
 // Definimos una función generadora llamada 'iterable'
@@ -1063,9 +1063,7 @@ const arr = [...iterable()];
 console.log(arr); // Muestra el array en la consola
 ```
 
-Este ejemplo muestra cómo crear un generador utilizando la función generadora `function*` y cómo utilizar un bucle `for...of` para recorrer los valores generados. También se demuestra cómo crear un array a partir de los valores generados.
-
-#### Ejemplo 2: Generador con Función Asíncrona
+##### Ejemplo 2: Generador con Función Asíncrona
 
 ```javascript
 function cuadrado(valor) {
@@ -1092,6 +1090,6 @@ for (let y of gen) {
 }
 ```
 
-Este ejemplo muestra cómo utilizar un generador en conjunto con funciones asíncronas. El generador `generador()` produce llamadas asincrónicas a la función `cuadrado()` y controla la ejecución secuencial a través del bucle `for...of`, lo que permite manejar tareas asíncronas de manera más legible y controlada.
+Estos ejemplos muestran cómo utilizar generadores en conjunto con funciones asíncronas. El generador controla la ejecución secuencial de tareas asíncronas, lo que permite manejarlas de manera legible y controlada.
 
 Los generadores, iterables e iteradores son fundamentales para el manejo de secuencias y tareas asíncronas en JavaScript, lo que facilita la escritura de código más eficiente y legible.
