@@ -26,7 +26,9 @@ saludar()
 ```javascript
 function saludar(nombre = "Eduardo", apellido = "Camavinga") {
 	console.log(`Hola mundo, mi nombre es ${nombre} ${apellido}.`);
-}
+};
 
-saludar("Cristiano", "Ronaldo")
+saludar("Cristiano", "Ronaldo");
 ```
+<br>
+...
