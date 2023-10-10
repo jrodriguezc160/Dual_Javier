@@ -7,7 +7,7 @@ Ejemplo de concatenación:<br>
 ```js story
 let saludo = "Hola, mi nombre es " + nombre + ".";
 ```
-<br>
+
 Ejemplo de interpolación:<br>
 
 ```javascript
@@ -49,3 +49,5 @@ tercerArray?.forEach(function (el, index) {
 	console.log(`<li id='${index}'>${el}</li>`)
 })
 ```
+
+Recordar: ```push``` , ```pop``` , ```get``` ...
