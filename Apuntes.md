@@ -20,9 +20,10 @@ function saludar(nombre = "Eduardo", apellido = "Camavinga") {
 	console.log(`Hola mundo, mi nombre es ${nombre} ${apellido}.`);
 }
 
-saludar()
+saludar();
 ```
 <br>
+
 ```javascript
 function saludar(nombre = "Eduardo", apellido = "Camavinga") {
 	console.log(`Hola mundo, mi nombre es ${nombre} ${apellido}.`);
@@ -30,5 +31,6 @@ function saludar(nombre = "Eduardo", apellido = "Camavinga") {
 
 saludar("Cristiano", "Ronaldo");
 ```
+
 <br>
 ...
