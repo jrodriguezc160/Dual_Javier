@@ -187,3 +187,138 @@ Salida: "Se ha producido el siguiente error -> Error: El carácter introducido n
 
 <br>
 
+### Break & Continue
+Ejemplo de continue en un bucle for (imprimimos solo los impares):
+
+```javascript
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = 0; i < numeros.length; i++) {
+  if (numeros[i] % 2 === 0) {
+    continue;
+  }
+
+  console.log(numeros[i]);
+}
+```
+
+Salida: 1 3 5 7 9
+
+<br>
+
+### Desestructuración
+Con arrays:
+
+```javascript
+let numeros = [1, 2, 3];
+
+// Desestructuración
+const [uno, dos, tres] = numeros;
+
+console.log(numeros);
+```
+
+<br>
+
+Con objetos:
+
+```javascript
+const camaOh = {
+  nombre: "Eduardo",
+  apellido: "Camavinga",
+  dorsal: 12,
+};
+
+// Desestructuración
+let { nombre, apellido, dorsal } = camaOh;
+
+console.log(nombre, apellido, dorsal);
+```
+
+<br>
+
+### Objetos literales
+Ejemplo:
+
+```javascript
+let nombre = "Eduardo",
+  apellido = "Camavinga";
+
+const camaOh = {
+  nombre,
+  apellido,
+  dorsal: 12,
+  cantar() {
+    console.log("Cama oh, Cama ohhh");
+  },
+};
+
+console.log(camaOh);
+camaOh.cantar();
+```
+
+<br>
+
+### Rest & Spread operator
+Ejemplo 1 · Función sumar():
+
+```javascript
+function sumar(a, b, ...c) {
+  let resultado = a + b;
+
+  c.forEach(function (n) {
+    resultado += n;
+  });
+
+  console.log(resultado);
+}
+
+sumar(1, 2, 3, 4);
+```
+
+<br>
+
+Ejemplo 2 · Arrays:
+
+```javascript
+const array1 = [1, 2, 3, 4, 5],
+  array2 = [6, 7, 8, 9, 0];
+
+const array3 = [...array1, ...array2];
+console.log(array3);
+```
+
+<br>
+
+### Arrow ⇒ functions
+Comparación 1:
+
+```javascript
+/*
+	const sumar = function (a, b) {
+		return a + b;
+	};
+*/
+
+const sumar = (a, b) => alert(`La suma de ${a} + ${b} es igual a ${a + b}`);
+
+sumar(8, 6);
+```
+
+<br>
+
+Comparación 2:
+
+```javascript
+const numeros = [1, 2, 3, 4, 5];
+
+/*
+	numeros.forEach(function (element, index) {
+		console.log(`${index} - Número ${element}`);
+	});
+*/
+
+numeros.forEach((element, index) => {
+  console.log(`${index} - Número ${element}`);
+});
+```
