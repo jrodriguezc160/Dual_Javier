@@ -96,3 +96,65 @@ console.log(jugador.hasOwnProperty("trofeos"));
 
 ---
 ### Operador ternario
+Variable que funciona como if:
+
+```javascript
+let edad = 15;
+
+let mayorDeEdad = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+
+console.log(mayorDeEdad);
+// La salida será "Eres mayor de edad"
+```
+
+---
+### For
+for in:
+
+````javascript
+const camaOh = {
+  nombre: "Eduardo",
+  apellido: "Camavinga",
+  dorsal: 12,
+};
+
+for (const propiedad in camaOh) {
+  console.log(`Key: ${propiedad}, Propiedad: ${camaOh[propiedad]}`);
+}
+```
+
+for of:
+
+```javascript
+let numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+for (const elemento of numeros) {
+  console.log(elemento);
+}
+
+// Salida:
+// 10
+// 20
+// 30
+// 40
+// 50
+// 60
+// 70
+// 80
+// 90
+
+let cadena = "Camavinga";
+for (const caracter of cadena) {
+  console.log(caracter);
+}
+
+// Salida:
+// C
+// a
+// m
+// a
+// v
+// i
+// n
+// g
+// a
+```
