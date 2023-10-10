@@ -991,3 +991,41 @@ console.log(miWeakMap); // Salida: WeakMap { [items unknown] }
 ```
 
 Este ejemplo muestra cómo crear un `WeakMap`, asignar valores a objetos, recuperar valores por clave, verificar la existencia de claves y eliminar entradas específicas. Los objetos en un `WeakMap` pueden ser eliminados por el recolector de basura si ya no tienen referencias fuertes en tu código.
+
+<br>
+
+### Iterables e Iteradores en JavaScript
+
+En JavaScript, los iterables y los iteradores son conceptos que nos permiten recorrer secuencias de datos, como arreglos o estructuras personalizadas. Aquí tienes una descripción general de su uso:
+
+- **Iterables**: Son objetos que tienen un método `Symbol.iterator` que devuelve un objeto iterador. Los iterables pueden ser recorridos con un bucle `for...of`.
+
+- **Iteradores**: Son objetos que implementan el método `next()`, que devuelve un objeto con dos propiedades: `value` (el valor actual) y `done` (un indicador de finalización).
+
+#### Ejemplo:
+
+```javascript
+// Creamos un arreglo llamado 'iterable' con números del 1 al 5.
+const iterable = [1, 2, 3, 4, 5];
+
+// Accedemos al iterador del iterable.
+const iterador = iterable[Symbol.iterator]();
+
+console.warn("Recorremos el iterable con el iterador:");
+
+// Obtenemos el primer elemento del iterable y su estado de finalización.
+let next = iterador.next();
+
+while (!next.done) { // Iniciamos un bucle mientras haya elementos en el iterable.
+  // Imprimimos el valor actual del elemento del iterable.
+  console.log(next.value);
+
+  // Obtenemos el siguiente elemento del iterable y su estado de finalización.
+  next = iterador.next();
+}
+```
+
+Este ejemplo muestra cómo crear un iterable a partir de un arreglo y cómo acceder a su iterador. Luego, recorremos el iterable utilizando el iterador y mostramos los valores en la consola.
+
+<br>
+
