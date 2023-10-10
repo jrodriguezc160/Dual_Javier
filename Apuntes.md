@@ -164,3 +164,26 @@ for (const caracter of cadena) {
 // g
 // a
 ```
+
+<br>
+
+### Try-Catch
+Ejemplo de try-catch:
+
+````javascript
+try {
+  let numero = " y";
+
+  if (isNaN(numero)) {
+    throw new Error("El carácter introducido no es un número");
+  }
+  console.log(numero);
+} catch (error) {
+  console.log(`Se ha producido el siguiente error -> ${error}`);
+}
+```
+
+Salida: "Se ha producido el siguiente error -> Error: El carácter introducido no es un número"
+
+<br>
+
