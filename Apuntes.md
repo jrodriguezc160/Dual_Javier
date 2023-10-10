@@ -170,7 +170,7 @@ for (const caracter of cadena) {
 ### Try-Catch
 Ejemplo de try-catch:
 
-````javascript
+```javascript
 try {
   let numero = " y";
 
