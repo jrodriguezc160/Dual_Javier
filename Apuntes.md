@@ -10,6 +10,9 @@ let saludo = "Hola, mi nombre es " + nombre + ".";
 <br>
 Ejemplo de interpolación:<br>
 
-    let saludo = `Hola, mi nombre es ${nombre}.`;
+```javascript
+let saludo = `Hola, mi nombre es ${nombre}.`;
+```
+
 
 <br>
