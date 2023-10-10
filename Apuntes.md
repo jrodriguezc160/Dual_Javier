@@ -13,9 +13,7 @@ Ejemplo de interpolación:<br>
 ```javascript
 let saludo = `Hola, mi nombre es ${nombre}.`;
 ```
-
-<rb>
-	
+---	
 ### Funciones
 Importante: undefined y return<br>
 ```javascript
@@ -35,6 +33,7 @@ function saludar(nombre = "Eduardo", apellido = "Camavinga") {
 saludar("Cristiano", "Ronaldo");
 ```
 
+---
 ### Arrays
 Declaración de un array:
 
@@ -55,6 +54,7 @@ tercerArray?.forEach(function (el, index) {
 
 Recordar: ```push``` , ```pop``` , ```get``` ...
 
+---
 ### Objetos
 Los objetos son colecciones de propiedades (clave-valor). Un objeto puede contener cualquier tipo de propiedad (cadena de texto, número, array, funciones, otros objetos…).
 <br>
@@ -93,3 +93,6 @@ console.log(Object.values(jugador));
 console.log(jugador.hasOwnProperty("nombre"));
 console.log(jugador.hasOwnProperty("trofeos"));
 ```
+
+---
+### Operador ternario
