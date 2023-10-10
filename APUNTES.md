@@ -905,3 +905,89 @@ console.log(miMapa); // Salida: Map {}
 ```
 
 Este ejemplo muestra cómo crear un mapa, asignar pares clave-valor, recuperar valores por clave, verificar la existencia de claves y eliminar entradas específicas o borrar todo el mapa. Los mapas son útiles para gestionar datos estructurados en JavaScript.
+
+<br>
+
+### WeakSets (Conjuntos Débiles) en JavaScript
+
+Los conjuntos débiles (`WeakSet`) en JavaScript son estructuras de datos similares a los conjuntos, pero con algunas diferencias clave:
+
+- **Referencias débiles**: A diferencia de los conjuntos regulares, los `WeakSet` solo pueden contener objetos y no valores primitivos. Además, las referencias a los objetos en un `WeakSet` son débiles, lo que significa que no impiden que los objetos sean recogidos por el recolector de basura si ya no están siendo utilizados en otros lugares de tu código.
+
+- **No iterable**: Los `WeakSet` no son iterables, lo que significa que no puedes recorrer sus elementos como lo harías con un conjunto normal utilizando un bucle `for...of` o métodos como `forEach`.
+
+- **Operaciones básicas**: Los `WeakSet` admiten operaciones básicas como `add()`, `has()` y `delete()` para agregar elementos, verificar la existencia de elementos y eliminar elementos específicos.
+
+Los `WeakSets` son útiles cuando necesitas almacenar conjuntos de objetos de manera que no eviten que los objetos se eliminen de la memoria cuando ya no son necesarios, como en casos de implementación de sistemas de caché o gestión de referencias débiles.
+
+#### Ejemplo:
+
+```javascript
+// Creación de un WeakSet y asignación de objetos
+const miWeakSet = new WeakSet();
+
+const obj1 = { nombre: "Objeto 1" };
+const obj2 = { nombre: "Objeto 2" };
+const obj3 = { nombre: "Objeto 3" };
+
+miWeakSet.add(obj1);
+miWeakSet.add(obj2);
+
+console.log(miWeakSet); // Salida: WeakSet { [items unknown] }
+
+// Verificar la existencia de un objeto en el WeakSet
+console.log(miWeakSet.has(obj1)); // Salida: true
+console.log(miWeakSet.has(obj3)); // Salida: false
+
+// Eliminar un objeto del WeakSet
+miWeakSet.delete(obj2);
+console.log(miWeakSet); // Salida: WeakSet { [items unknown] }
+```
+
+Este ejemplo muestra cómo crear un `WeakSet`, agregar objetos, verificar la existencia de objetos y eliminar objetos del conjunto. Recuerda que los objetos en un `WeakSet` pueden ser recogidos por el recolector de basura si ya no tienen referencias fuertes en tu código.
+
+<br>
+
+### WeakMaps (Mapas Débiles) en JavaScript
+
+Los mapas débiles (`WeakMap`) en JavaScript son similares a los mapas regulares, pero también tienen referencias débiles a las claves. Aquí hay una descripción general de su uso:
+
+- **Referencias débiles en claves**: A diferencia de los mapas regulares, las claves en un `WeakMap` son referencias débiles, lo que significa que no impiden que los objetos se eliminen de la memoria si ya no están siendo utilizados en otros lugares de tu código.
+
+- **Operaciones básicas**: Los `WeakMap` admiten operaciones básicas como `set()`, `get()`, `has()` y `delete()` para asignar valores, recuperar valores por clave, verificar la existencia de claves y eliminar entradas específicas.
+
+- **Solo objetos como claves**: Solo puedes utilizar objetos como claves en un `WeakMap`, no se permiten valores primitivos como claves.
+
+Los `WeakMaps` son útiles cuando necesitas asociar datos específicos con objetos sin prevenir que los objetos sean eliminados de la memoria cuando ya no se utilizan en otros lugares de tu código.
+
+#### Ejemplo:
+
+```javascript
+// Creación de un WeakMap y asignación de valores a objetos
+const miWeakMap = new WeakMap();
+
+const obj1 = { nombre: "Objeto 1" };
+const obj2 = { nombre: "Objeto 2" };
+
+miWeakMap.set(obj1, "Valor para Objeto 1");
+miWeakMap.set(obj2, "Valor para Objeto 2");
+
+console.log(miWeakMap); // Salida: WeakMap { [items unknown] }
+
+// Recuperar valores por clave
+const valor1 = miWeakMap.get(obj1);
+const valor2 = miWeakMap.get(obj2);
+
+console.log(valor1); // Salida: Valor para Objeto 1
+console.log(valor2); // Salida: Valor para Objeto 2
+
+// Verificar la existencia de claves en el WeakMap
+console.log(miWeakMap.has(obj1)); // Salida: true
+console.log(miWeakMap.has({ nombre: "Objeto 1" })); // Salida: false (no es la misma referencia)
+
+// Eliminar una entrada por clave
+miWeakMap.delete(obj2);
+console.log(miWeakMap); // Salida: WeakMap { [items unknown] }
+```
+
+Este ejemplo muestra cómo crear un `WeakMap`, asignar valores a objetos, recuperar valores por clave, verificar la existencia de claves y eliminar entradas específicas. Los objetos en un `WeakMap` pueden ser eliminados por el recolector de basura si ya no tienen referencias fuertes en tu código.
