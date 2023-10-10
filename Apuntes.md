@@ -32,5 +32,20 @@ function saludar(nombre = "Eduardo", apellido = "Camavinga") {
 saludar("Cristiano", "Ronaldo");
 ```
 
-<br>
-...
+### Arrays
+Declaración de un array:
+
+```javascript
+const segundoArray = Array(10).fill(0);
+const primerArray = [1, 2, 3, 4, ["A", "B", "C"]];
+```
+
+Método forEach():
+
+```javascript
+const tercerArray = ["Rojo", "Verde", "Azul"];
+
+tercerArray?.forEach(function (el, index) {
+	console.log(`<li id='${index}'>${el}</li>`)
+})
+```
