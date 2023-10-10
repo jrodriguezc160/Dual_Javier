@@ -322,3 +322,324 @@ numeros.forEach((element, index) => {
   console.log(`${index} - Número ${element}`);
 });
 ```
+
+<br>
+
+### Prototipos
+Símil con la clase Jugadores del programa de Java que hice con Isabel <b>(muy importante el this.)</b>:
+
+```javascript
+function Jugador(nombre, apellido, dorsal) {
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.dorsal = dorsal;
+}
+
+Jugador.prototype.frase = function () {
+  console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`);
+};
+
+const camavinga = new Jugador("Eduardo", "Camavinga", 12);
+
+console.log(camavinga);
+camavinga.frase();
+```
+
+<br>
+
+### Herencia prototípica
+Ejemplo de Personas y Futbolistas:
+
+```javascript
+// Prototipo Persona
+function Persona(nombre, apellido) {
+  this.nombre = nombre;
+  this.apellido = apellido;
+}
+
+// Definimos un método "frase" en el prototipo de Persona
+Persona.prototype.frase = function () {
+  console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`);
+};
+
+// Prototipo Futbolista
+function Futbolista(nombre, apellido, dorsal) {
+  // Llamamos al constructor de Persona con los nombres y apellidos dados
+  this.super = Persona;
+  this.super(nombre, apellido);
+  this.dorsal = dorsal;
+}
+
+// Establecemos la herencia de Futbolista desde Persona
+Futbolista.prototype = new Persona();
+Futbolista.prototype.constructor = Futbolista;
+
+// Redefinimos el método "frase" en el prototipo de Futbolista
+Futbolista.prototype.frase = function () {
+  console.log(
+    `Mi nombre es ${this.nombre} ${this.apellido} y llevo el dorsal ${this.dorsal}`
+  );
+};
+
+// Agregamos un nuevo método "celebracion" al prototipo de Futbolista
+Futbolista.prototype.celebracion = function () {
+  console.log(
+    `Sensational! Absolutely sensational! What a goal for ${this.apellido}`
+  );
+};
+
+// Creamos una instancia de Persona llamada javier
+const javier = new Persona("Javier", "Rodríguez");
+
+console.log(javier);
+javier.frase();
+
+// Creamos una instancia de Futbolista llamada camavinga
+const camavinga = new Futbolista("Eduardo", "Camavinga", "12");
+
+console.log(camavinga);
+camavinga.frase();
+camavinga.celebracion();
+```
+
+<br>
+
+### Clases y herencia
+Herencia prototípica muyyy simplificada:
+
+```javascript
+// Clase Persona
+class Persona {
+  constructor(nombre, apellido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+  }
+
+  // Definimos un método "frase" en la clase de Persona
+  frase() {
+    console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`);
+  }
+}
+
+// Clase Futbolista
+class Futbolista extends Persona {
+  constructor(nombre, apellido, dorsal) {
+    super(nombre, apellido);
+    this.dorsal = dorsal;
+  }
+
+  // Redefinimos el método "frase" en la clase de Futbolista
+  frase() {
+    console.log(
+      `Mi nombre es ${this.nombre} ${this.apellido} y llevo el dorsal ${this.dorsal}`
+    );
+  }
+
+  // Agregamos un nuevo método "celebracion" a la clase de Futbolista
+  celebracion() {
+    console.log(
+      `Sensational! Absolutely sensational! What a goal for ${this.apellido}`
+    );
+  }
+}
+
+// Creamos una instancia de Persona llamada javier
+const javier = new Persona("Javier", "Rodríguez");
+
+console.log(javier);
+javier.frase();
+
+// Creamos una instancia de Futbolista llamada camavinga
+const camavinga = new Futbolista("Eduardo", "Camavinga", "12");
+
+console.log(camavinga);
+camavinga.frase();
+camavinga.celebracion();
+```
+
+<br>
+
+### Getter & Setter
+Con el ejemplo de Futbolistas y utilizándose para una posible opción de menú que permita modificar parámetros de la instancia de la clase:
+
+```javascript
+// Clase Persona
+class Persona {
+  constructor(nombre, apellido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+  }
+
+  // Definimos un método "frase" en la clase de Persona
+  frase() {
+    console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`);
+  }
+}
+
+// Clase Futbolista
+class Futbolista extends Persona {
+  constructor(nombre, apellido, dorsal) {
+    super(nombre, apellido);
+    this.dorsal = dorsal;
+  }
+
+  // Redefinimos el método "frase" en la clase de Futbolista
+  frase() {
+    console.log(
+      `Mi nombre es ${this.nombre} ${this.apellido} y llevo el dorsal ${this.dorsal}`
+    );
+  }
+
+  // Agregamos un nuevo método "celebracion" a la clase de Futbolista
+  celebracion() {
+    console.log(
+      `Sensational! Absolutely sensational! What a goal for ${this.apellido}`
+    );
+  }
+
+  get getDorsal() {
+    return this.dorsal;
+  }
+
+  set setDorsal(dorsal) {
+    this.dorsal = dorsal;
+  }
+}
+
+// Creamos una instancia de Persona llamada javier
+const javier = new Persona("Javier", "Rodríguez");
+
+console.log(javier);
+javier.frase();
+
+// Creamos una instancia de Futbolista llamada camavinga
+const camavinga = new Futbolista("Eduardo", "Camavinga", "12");
+
+console.log(camavinga);
+camavinga.frase();
+camavinga.celebracion();
+
+// Getter y setter
+console.log(camavinga.getDorsal);
+camavinga.setDorsal = 7;
+console.log(camavinga.getDorsal);
+```
+
+<br>
+
+### Console
+Lista de métodos que se usan con el objeto console:
+- .log
+- .error
+- .warning
+- .info
+- .clear
+- .dir
+- .group/groupCollapsed/groupEnd
+- .table
+- .time/timeEnd
+- .count
+- .assert
+
+<br>
+
+### Funciones Anónimas Autoejecutables
+En este programa tenemos una Función Anónima Autoejectuable que contiene una variable contador y dos funciones para incrementar su valor y retornarlo. Además, cuenta con un return que devuelve estas funciones para poder usarlas fuera de la IIFE.
+
+```javascript
+let contador = (function () {
+  let count = 0;
+
+  function increment() {
+    count++;
+  }
+
+  function getCount() {
+    return count;
+  }
+
+  return {
+    increment: increment,
+    getCount: getCount,
+  };
+})();
+
+console.log(contador.getCount());
+
+while (contador.getCount() < 5) {
+  contador.increment();
+  console.log(contador.getCount());
+}
+```
+
+<br>
+
+### Asincronía en JavaScript
+
+JavaScript es un lenguaje de programación que admite la programación asíncrona. Esto significa que puede realizar tareas que no bloquean la ejecución principal del programa, lo que es esencial para aplicaciones web y otras tareas que requieren manejar eventos y operaciones en segundo plano.
+
+#### `setTimeout` y `setInterval`
+
+`setTimeout` y `setInterval` son funciones que permiten ejecutar código de manera asíncrona después de un cierto período de tiempo.
+
+<b>Ejemplo con `setInterval`</b>
+
+El siguiente ejemplo muestra cómo utilizar `setInterval` para imprimir la hora actual cada segundo y luego detenerlo usando `clearInterval`:
+
+```javascript
+let temporizador = setInterval(() => {
+  console.log(new Date().toLocaleTimeString());
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(temporizador);
+  console.log("Después del clearInterval");
+}, 5000);
+```
+
+En este ejemplo, `setInterval` ejecuta la función proporcionada cada segundo, mostrando la hora actual. Luego, después de 5 segundos, se utiliza `clearInterval` para detener la ejecución del temporizador.
+
+#### Callbacks
+
+Los callbacks son funciones que se pasan como argumentos a otras funciones y se ejecutan después de que esa función haya completado su tarea. Son esenciales para manejar la asincronía en JavaScript.
+
+<b>Ejemplo de Callback</b>
+
+El siguiente ejemplo muestra el uso de callbacks para calcular el cuadrado de varios números de forma asíncrona:
+
+```javascript
+function cuadradoCallback(value, callback) {
+  setTimeout(() => {
+    callback(value, value * value);
+  }, 0);
+}
+
+cuadradoCallback(0, (value, result) => {
+  console.log("Inicia Callback");
+  console.log(`Callback: ${value}, ${result}`);
+  
+  cuadradoCallback(1, (value, result) => {
+    console.log(`Callback: ${value}, ${result}`);
+  });
+
+  cuadradoCallback(2, (value, result) => {
+    console.log(`Callback: ${value}, ${result}`);
+  });
+
+  cuadradoCallback(3, (value, result) => {
+    console.log(`Callback: ${value}, ${result}`);
+  });
+
+  cuadradoCallback(4, (value, result) => {
+    console.log(`Callback: ${value}, ${result}`);
+  });
+
+  cuadradoCallback(5, (value, result) => {
+    console.log(`Callback: ${value}, ${result}`);
+  });
+});
+```
+
+En este ejemplo, la función `cuadradoCallback` toma un valor y un callback como argumentos. Calcula el cuadrado del valor de manera asíncrona y luego llama al callback con el resultado. Luego, se muestra el resultado de cada cálculo en la consola.
+
+Los callbacks son útiles para gestionar operaciones asíncronas como solicitudes HTTP, lectura de archivos y otros eventos que pueden ocurrir en segundo plano en aplicaciones JavaScript.
