@@ -643,3 +643,64 @@ cuadradoCallback(0, (value, result) => {
 En este ejemplo, la función `cuadradoCallback` toma un valor y un callback como argumentos. Calcula el cuadrado del valor de manera asíncrona y luego llama al callback con el resultado. Luego, se muestra el resultado de cada cálculo en la consola.
 
 Los callbacks son útiles para gestionar operaciones asíncronas como solicitudes HTTP, lectura de archivos y otros eventos que pueden ocurrir en segundo plano en aplicaciones JavaScript.
+
+<br>
+
+### Promesas en JavaScript
+
+Las promesas son una forma poderosa de manejar la asincronía en JavaScript. Proporcionan una estructura más clara y fácil de leer para el código asíncrono, en lugar de anidar múltiples callbacks. Las promesas se utilizan para representar valores que pueden no estar disponibles de inmediato y permiten una gestión más eficiente de errores.
+
+#### Ejemplo de Promesas
+
+El siguiente ejemplo muestra cómo utilizar promesas para calcular el cuadrado de varios números de manera asíncrona y manejar errores si el valor no es un número.
+
+```javascript
+function cuadradoPromise(value) {
+  if (typeof value !== "number") {
+    return Promise.reject(`ERROR: El valor enviado no es un número.`);
+  }
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        value,
+        result: value * value,
+      });
+    }, 0 | (Math.random() * 1000));
+  });
+}
+
+cuadradoPromise(0)
+  .then((obj) => {
+    console.log(`Inicio Promise`);
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+    return cuadradoPromise(1);
+  })
+  .then((obj) => {
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+    return cuadradoPromise(2);
+  })
+  .then((obj) => {
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+    return cuadradoPromise(3);
+  })
+  .then((obj) => {
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+    return cuadradoPromise(4);
+  })
+  .then((obj) => {
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+    return cuadradoPromise(5);
+  })
+  .then((obj) => {
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+    console.log(`Fin Promise`);
+  })
+  .catch((err) => console.error(err));
+```
+
+En este ejemplo, la función `cuadradoPromise` devuelve una promesa que calcula el cuadrado de un número después de un tiempo aleatorio simulado. Utiliza `resolve` para devolver el resultado exitoso y `reject` para manejar errores.
+
+El uso de `.then` permite encadenar las promesas, lo que hace que el código sea más legible y estructurado. Si se encuentra un error (por ejemplo, si el valor no es un número), se captura utilizando `.catch`.
+
+Las promesas son una forma eficaz de gestionar la asincronía y mejorar la legibilidad del código en situaciones donde es necesario realizar operaciones asíncronas.
