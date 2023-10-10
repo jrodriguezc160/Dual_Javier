@@ -858,3 +858,50 @@ console.log(miSet); // Salida: Set {}
 ```
 
 <br>
+
+### Mapas (Maps) en JavaScript
+
+Los mapas en JavaScript son estructuras de datos que permiten almacenar pares clave-valor, donde las claves son únicas y los valores pueden ser cualquier tipo de datos. A continuación, se presenta una descripción general de su uso:
+
+- **Creación de un Mapa**: Puedes crear un mapa utilizando `new Map()`, y puedes asignar pares clave-valor al mapa utilizando el método `set()`.
+
+- **Operaciones con Mapas**:
+  - **Agregar elementos**: Utiliza el método `set()` para asignar pares clave-valor al mapa.
+  - **Recuperar elementos**: Puedes obtener el valor asociado a una clave utilizando el método `get()`.
+  - **Verificar la existencia de una clave**: Utiliza el método `has()` para comprobar si una clave existe en el mapa.
+  - **Eliminar elementos**: Usa el método `delete()` para eliminar una entrada específica por clave, o `clear()` para borrar todo el mapa.
+  - **Tamaño del Mapa**: Puedes obtener el número de pares clave-valor en el mapa utilizando la propiedad `size`.
+
+Los mapas son útiles cuando necesitas almacenar datos relacionados en una estructura de clave-valor y desear realizar operaciones como agregar, recuperar y eliminar elementos de manera eficiente.
+
+#### Ejemplo:
+
+```javascript
+// Creación de un mapa y asignación de valores
+const miMapa = new Map();
+
+miMapa.set("clave1", "valor1");
+miMapa.set("clave2", "valor2");
+miMapa.set("clave3", "valor3");
+
+console.log(miMapa); // Salida: Map { 'clave1' => 'valor1', 'clave2' => 'valor2', 'clave3' => 'valor3' }
+console.log(`Tamaño del mapa: ${miMapa.size}`); // Salida: Tamaño del mapa: 3
+
+// Recuperar un valor por clave
+const valor = miMapa.get("clave2");
+console.log(`Valor asociado a 'clave2': ${valor}`); // Salida: Valor asociado a 'clave2': valor2
+
+// Verificar la existencia de una clave
+console.log(miMapa.has("clave1")); // Salida: true
+console.log(miMapa.has("clave4")); // Salida: false
+
+// Eliminar una entrada por clave
+miMapa.delete("clave3");
+console.log(miMapa); // Salida: Map { 'clave1' => 'valor1', 'clave2' => 'valor2' }
+
+// Borrar todo el mapa
+miMapa.clear();
+console.log(miMapa); // Salida: Map {}
+```
+
+Este ejemplo muestra cómo crear un mapa, asignar pares clave-valor, recuperar valores por clave, verificar la existencia de claves y eliminar entradas específicas o borrar todo el mapa. Los mapas son útiles para gestionar datos estructurados en JavaScript.
