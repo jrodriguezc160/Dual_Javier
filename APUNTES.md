@@ -1029,3 +1029,69 @@ Este ejemplo muestra cómo crear un iterable a partir de un arreglo y cómo acce
 
 <br>
 
+### Generadores, Iterables e Iteradores en JavaScript
+
+En JavaScript, los generadores son una poderosa característica que permite crear secuencias de datos de manera eficiente. Junto con los iterables e iteradores, facilitan la manipulación y recorrido de estos datos de forma controlada. A continuación, se presenta una descripción general de su uso con dos ejemplos:
+
+#### Ejemplo 1: Generador Simple
+
+```javascript
+// Definimos una función generadora llamada 'iterable'
+function* iterable() {
+  // 'yield' pausa la ejecución y devuelve el valor "hola"
+  yield "hola";
+  console.log("Hola consola"); // Se muestra en la consola
+
+  yield "hola 2";
+  console.log("Seguimos con más instrucciones de código"); // Se muestra en la consola
+
+  yield "hola 3";
+
+  yield "hola 4";
+}
+
+// Creamos un iterador a partir de la función generadora
+let iterador = iterable();
+
+// Utilizamos un bucle 'for...of' para iterar a través del generador
+for (let y of iterador) {
+  console.log(y); // Muestra los valores en la consola
+}
+
+// Creamos un array 'arr' a partir de los valores generados por la función generadora
+const arr = [...iterable()];
+console.log(arr); // Muestra el array en la consola
+```
+
+Este ejemplo muestra cómo crear un generador utilizando la función generadora `function*` y cómo utilizar un bucle `for...of` para recorrer los valores generados. También se demuestra cómo crear un array a partir de los valores generados.
+
+#### Ejemplo 2: Generador con Función Asíncrona
+
+```javascript
+function cuadrado(valor) {
+  setTimeout(() => {
+    return console.log({ valor, resultado: valor * valor });
+  }, Math.random() * 1000);
+}
+
+function* generador() {
+  console.warn("Inicio Generator");
+  yield cuadrado(0);
+  yield cuadrado(1);
+  yield cuadrado(2);
+  yield cuadrado(3);
+  yield cuadrado(4);
+  yield cuadrado(5);
+  console.warn("Fin Generator");
+}
+
+let gen = generador();
+
+for (let y of gen) {
+  console.log(y);
+}
+```
+
+Este ejemplo muestra cómo utilizar un generador en conjunto con funciones asíncronas. El generador `generador()` produce llamadas asincrónicas a la función `cuadrado()` y controla la ejecución secuencial a través del bucle `for...of`, lo que permite manejar tareas asíncronas de manera más legible y controlada.
+
+Los generadores, iterables e iteradores son fundamentales para el manejo de secuencias y tareas asíncronas en JavaScript, lo que facilita la escritura de código más eficiente y legible.
