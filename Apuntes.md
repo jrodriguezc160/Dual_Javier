@@ -117,7 +117,7 @@ console.log(mayorDeEdad);
 ### For
 for in:
 
-````javascript
+```javascript
 const camaOh = {
   nombre: "Eduardo",
   apellido: "Camavinga",
