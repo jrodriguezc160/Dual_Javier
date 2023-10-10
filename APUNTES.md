@@ -802,3 +802,59 @@ funcionAsincronaExpresada();
 En este caso, la función asíncrona se asigna a la variable `funcionAsincronaExpresada` y se utiliza de la misma manera que la función declarada anteriormente.
 
 Ambos ejemplos ilustran cómo las funciones asíncronas simplifican la escritura y el manejo de código asíncrono en JavaScript, lo que mejora la legibilidad y el mantenimiento del código.
+
+<br>
+
+### Conjuntos (Sets) en JavaScript
+
+Los conjuntos en JavaScript son estructuras de datos que almacenan valores únicos sin duplicados. Aquí hay un resumen de su uso:
+
+- **Creación de un Set**: Puedes crear un conjunto utilizando `new Set()`, y automáticamente eliminará los duplicados de los valores que le proporcionas.
+
+- **Operaciones con Sets**:
+  - **Agregar elementos**: Utiliza el método `add()` para agregar elementos al conjunto. Los duplicados se ignoran.
+  - **Recorrer un Set**: Puedes utilizar un bucle `for...of` o el método `forEach()` para recorrer los elementos del conjunto.
+  - **Convertir un Set en un Array**: Utiliza `Array.from()` para convertir un conjunto en un array si necesitas realizar operaciones específicas de array.
+  - **Eliminar elementos**: Usa `delete()` para eliminar elementos específicos y `clear()` para borrar todo el conjunto.
+
+Los conjuntos son útiles cuando necesitas almacenar una colección de valores únicos y deseas realizar operaciones como agregar, eliminar y verificar la existencia de elementos de manera eficiente.
+<br>
+Ejemplo:
+
+```javascript
+// Creación de un conjunto con valores únicos
+const miSet = new Set();
+
+// Agregar elementos al conjunto
+miSet.add(1);
+miSet.add(2);
+miSet.add(3);
+miSet.add(2); // Los duplicados se ignoran
+
+console.log(miSet); // Salida: Set { 1, 2, 3 }
+console.log(`Tamaño del conjunto: ${miSet.size}`); // Salida: Tamaño del conjunto: 3
+
+// Recorrer un conjunto utilizando un bucle for...of
+console.warn("Recorriendo el conjunto:");
+for (const elemento of miSet) {
+  console.log(elemento);
+}
+// Salida:
+// 1
+// 2
+// 3
+
+// Verificar la existencia de un elemento en el conjunto
+console.log(miSet.has(2)); // Salida: true
+console.log(miSet.has(4)); // Salida: false
+
+// Eliminar elementos del conjunto
+miSet.delete(3);
+console.log(miSet); // Salida: Set { 1, 2 }
+
+// Borrar todo el conjunto
+miSet.clear();
+console.log(miSet); // Salida: Set {}
+```
+
+<br>
