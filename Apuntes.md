@@ -3,8 +3,8 @@ Apuntes de los contenidos de JavaScript aprendidos en la empresa durante la form
 
 ### Interpolación
 Al igual que la concatenación, la interpolación sirve para usar variables dentro de una cadena de texto.<br>
-Ejemplo de concatenación:
+Ejemplo de concatenación:<br>
 ``let saludo = "Hola, mi nombre es " + nombre + ".";``
 <br>
-Ejemplo de interpolación:
-``let saludo = `Hola, mi nombre es ${nombre}.```
+Ejemplo de interpolación:<br>
+``let saludo = `Hola, mi nombre es ${nombre}.``
