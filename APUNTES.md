@@ -704,3 +704,101 @@ En este ejemplo, la función `cuadradoPromise` devuelve una promesa que calcula 
 El uso de `.then` permite encadenar las promesas, lo que hace que el código sea más legible y estructurado. Si se encuentra un error (por ejemplo, si el valor no es un número), se captura utilizando `.catch`.
 
 Las promesas son una forma eficaz de gestionar la asincronía y mejorar la legibilidad del código en situaciones donde es necesario realizar operaciones asíncronas.
+
+<br>
+
+### Funciones Asíncronas en JavaScript
+
+Las funciones asíncronas en JavaScript, también conocidas como funciones `async`, son una característica poderosa para trabajar con código asincrónico de manera más legible y estructurada. Permiten que las operaciones asíncronas se vean más como código síncrono, lo que facilita la comprensión y el mantenimiento del código.
+
+#### Función Asíncrona Declarada
+
+Una función asíncrona declarada se define utilizando la palabra clave `async` antes de la palabra clave `function`. A continuación, se muestra un ejemplo de una función asíncrona que utiliza la función `cuadradoPromise` definida anteriormente para calcular el cuadrado de varios números:
+
+```javascript
+function cuadradoPromise(value) {
+  if (typeof value !== "number")
+    return Promise.reject(`ERROR: El valor enviado no es un número.`);
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        value,
+        result: value * value,
+      });
+    }, 0 | (Math.random() * 1000));
+  });
+}
+
+async function funcionAsincronaDeclarada() {
+  try {
+    console.log(`Inicio Async Function`);
+
+    let obj = await cuadradoPromise(0);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(1);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(2);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(3);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(4);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(5);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    console.log(`Fin Async Function`);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+funcionAsincronaDeclarada();
+```
+
+En este ejemplo, la función `funcionAsincronaDeclarada` utiliza `await` para esperar que se resuelvan las promesas devueltas por `cuadradoPromise`. Esto hace que el código sea más legible y se comporte de manera similar a una ejecución síncrona. También se maneja cualquier error que pueda ocurrir con un bloque `try-catch`.
+
+#### Función Asíncrona Expresada
+
+También es posible definir funciones asíncronas utilizando expresiones de función arrow (`=>`). Aquí tienes un ejemplo similar al anterior, pero utilizando una función asíncrona expresada:
+
+```javascript
+const funcionAsincronaExpresada = async () => {
+  try {
+    console.log(`Inicio Async Function`);
+
+    let obj = await cuadradoPromise(0);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(1);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(2);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(3);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(4);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    obj = await cuadradoPromise(5);
+    console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+    console.log(`Fin Async Function`);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+funcionAsincronaExpresada();
+```
+
+En este caso, la función asíncrona se asigna a la variable `funcionAsincronaExpresada` y se utiliza de la misma manera que la función declarada anteriormente.
+
+Ambos ejemplos ilustran cómo las funciones asíncronas simplifican la escritura y el manejo de código asíncrono en JavaScript, lo que mejora la legibilidad y el mantenimiento del código.
