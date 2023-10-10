@@ -295,9 +295,9 @@ Comparación 1:
 
 ```javascript
 /*
-	const sumar = function (a, b) {
-		return a + b;
-	};
+const sumar = function (a, b) {
+	return a + b;
+};
 */
 
 const sumar = (a, b) => alert(`La suma de ${a} + ${b} es igual a ${a + b}`);
@@ -313,9 +313,9 @@ Comparación 2:
 const numeros = [1, 2, 3, 4, 5];
 
 /*
-	numeros.forEach(function (element, index) {
-		console.log(`${index} - Número ${element}`);
-	});
+numeros.forEach(function (element, index) {
+	console.log(`${index} - Número ${element}`);
+});
 */
 
 numeros.forEach((element, index) => {
