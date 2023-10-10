@@ -13,7 +13,9 @@ Ejemplo de interpolación:<br>
 ```javascript
 let saludo = `Hola, mi nombre es ${nombre}.`;
 ```
+
 <rb>
+	
 ### Funciones
 Importante: undefined y return<br>
 ```javascript
