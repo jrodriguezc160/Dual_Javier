@@ -1221,3 +1221,50 @@ let beckham = new Persona("David"); // Muestra "David"
 Este ejemplo demuestra varias situaciones relacionadas con el objeto `this`.
 
 El manejo de `this` es crucial en JavaScript, y es importante entender cuándo y cómo se refiere al contexto adecuado. Las buenas prácticas incluyen usar métodos de objetos para acceder a propiedades y evitar la creación de propiedades globales en funciones constructoras.
+
+<br>
+
+### Call, Apply y Bind en JavaScript
+
+En JavaScript, `call`, `apply` y `bind` son métodos que te permiten controlar el valor de `this` en una función y, en el caso de `call` y `apply`, también pasar argumentos a esa función. A continuación, se muestra un ejemplo que ilustra el uso de estos métodos:
+
+```javascript
+console.log(this); // El valor de 'this' en el contexto global
+
+this.lugar = "Contexto global"; // Se agrega una propiedad 'lugar' al contexto global
+
+function saludar(saludo, aQuien) {
+  console.log(`${saludo} ${aQuien}, estamos en el ${this.lugar}`);
+}
+
+const obj = {
+  lugar: "Contexto objeto",
+};
+
+// Método 'call' y 'apply': Cambio del valor de 'this' y paso de argumentos
+saludar.call(obj, "Hola", "Vegeta"); // Llama a 'saludar' con 'this' apuntando a 'obj'
+saludar.apply(obj, ["Pero bueno", "Willy"]); // Llama a 'saludar' con 'this' apuntando a 'obj' y argumentos en un arreglo
+
+const persona = {
+  nombre: "Messi",
+  saludar: function () {
+    console.log(`Hola ${this.nombre}`);
+  },
+};
+
+persona.saludar(); // Método 'saludar' del objeto 'persona'
+
+const otraPersona = {
+  saludar: persona.saludar.bind(persona), // 'bind' establece 'this' en el objeto 'persona'
+};
+
+otraPersona.saludar(); // Llama al método 'saludar' con 'this' apuntando a 'persona'
+```
+
+- **`call`**: Este método permite llamar a una función con un valor específico de `this` y argumentos pasados individualmente.
+
+- **`apply`**: Similar a `call`, `apply` permite llamar a una función con un valor específico de `this`, pero los argumentos se pasan en forma de un arreglo.
+
+- **`bind`**: El método `bind` crea una nueva función que, cuando se llama, tiene un valor de `this` predefinido. En el ejemplo, `otraPersona.saludar` es una nueva función con `this` establecido en el objeto `persona`.
+
+El uso de `call`, `apply` y `bind` es útil cuando necesitas controlar el contexto (`this`) en el que se ejecuta una función y, en el caso de `call` y `apply`, pasar argumentos de manera más flexible. Estos métodos son comunes en situaciones donde se necesita reutilizar funciones en diferentes contextos.
