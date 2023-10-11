@@ -1176,3 +1176,48 @@ Las propiedades dinámicas son útiles cuando necesitas agregar o manipular prop
 
 <br>
 
+### El Objeto `this` en JavaScript: Buenas y Malas Prácticas
+
+En JavaScript, el objeto `this` se utiliza para referirse al contexto en el que se ejecuta una función o método. Su comportamiento puede ser un punto delicado al programar. A continuación, se presenta un ejemplo que ilustra tanto buenas como malas prácticas en relación con el objeto `this` y los scopes:
+
+```javascript
+const objeto = {
+  nombre: "Objeto",
+  imprimir: function () {
+    console.log(this.nombre); // Buena práctica: 'this' se refiere al objeto 'objeto'
+  },
+};
+
+objeto.imprimir(); // Muestra "Objeto"
+
+function imprimir() {
+  console.log(this.nombre); // Mala práctica: 'this' no se refiere a ningún objeto
+}
+
+const obj2 = {
+  nombre: "Contexto objeto 2",
+  imprimir,
+};
+
+obj2.imprimir(); // Muestra "Contexto objeto 2"
+
+const obj3 = {
+  nombre: "Contexto objeto 3",
+  imprimir: function () {
+    console.log(this.nombre); // Buena práctica: 'this' se refiere al objeto 'obj3'
+  },
+};
+
+obj3.imprimir(); // Muestra "Contexto objeto 3"
+
+function Persona(nombre) {
+  this.nombre = nombre; // Mala práctica: 'this' en una función constructora crea propiedades globales
+  return console.log(this.nombre);
+}
+
+let beckham = new Persona("David"); // Muestra "David"
+```
+
+Este ejemplo demuestra varias situaciones relacionadas con el objeto `this`.
+
+El manejo de `this` es crucial en JavaScript, y es importante entender cuándo y cómo se refiere al contexto adecuado. Las buenas prácticas incluyen usar métodos de objetos para acceder a propiedades y evitar la creación de propiedades globales en funciones constructoras.
