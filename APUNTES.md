@@ -1093,3 +1093,56 @@ for (let y of gen) {
 Estos ejemplos muestran cómo utilizar generadores en conjunto con funciones asíncronas. El generador controla la ejecución secuencial de tareas asíncronas, lo que permite manejarlas de manera legible y controlada.
 
 Los generadores, iterables e iteradores son fundamentales para el manejo de secuencias y tareas asíncronas en JavaScript, lo que facilita la escritura de código más eficiente y legible.
+
+<br>
+
+### Proxies en JavaScript
+
+Los proxies en JavaScript son objetos que permiten controlar y personalizar el comportamiento de otros objetos. Se utilizan para interceptar y modificar operaciones en un objeto objetivo, como la lectura, escritura y eliminación de propiedades. Aquí tienes una descripción general de su uso con un ejemplo:
+
+```javascript
+// Definimos un objeto 'persona' con propiedades nombre, apellido y edad
+const persona = {
+  nombre: "",
+  apellido: "",
+  edad: 0,
+};
+
+// Creamos un manejador para el objeto persona usando Proxy
+const manejador = {
+  set(obj, prop, valor) {
+    // Verificamos si la propiedad existe en el objeto persona
+    if (Object.keys(obj).indexOf(prop) === -1) {
+      return console.error(
+        `La propiedad ${prop} no existe en el objeto persona.`
+      );
+    }
+
+    // Validamos que las propiedades nombre y apellido solo contengan letras y espacios
+    if (
+      (prop === "nombre" || prop === "apellido") &&
+      !/^[A-Za-zÁáÉéÍíÓóÚúÜü\s]+$/g.test(valor)
+    ) {
+      return console.error(
+        `La propiedad ${prop} sólo acepta letras y espacios en blanco.`
+      );
+    }
+
+    obj[prop] = valor; // Asignamos el valor a la propiedad del objeto
+  },
+};
+
+// Creamos un objeto 'bisbal' que es un Proxy de 'persona' con el manejador personalizado
+const bisbal = new Proxy(persona, manejador);
+
+// Asignamos valores a las propiedades de 'bisbal'
+bisbal.nombre = "David123"; // Error de validación
+bisbal.apellido = "Bisbal";
+bisbal.edad = 40;
+bisbal.twitter = "@bisbal"; // Error, la propiedad no existe en 'persona'
+
+console.log(bisbal); // Muestra 'bisbal' con las modificaciones
+console.log(persona); // Muestra 'persona' sin cambios
+```
+
+Este ejemplo demuestra cómo utilizar un proxy para controlar las operaciones de escritura en un objeto `persona`. El manejador personalizado `manejador` intercepta y valida las asignaciones de propiedades, garantizando que se cumplan ciertas condiciones. Los proxies son útiles para implementar lógica de seguridad, validación y control de acceso en objetos JavaScript, lo que permite un manejo más seguro y personalizado de los datos.
