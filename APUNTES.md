@@ -1146,3 +1146,33 @@ console.log(persona); // Muestra 'persona' sin cambios
 ```
 
 Este ejemplo demuestra cómo utilizar un proxy para controlar las operaciones de escritura en un objeto `persona`. El manejador personalizado `manejador` intercepta y valida las asignaciones de propiedades, garantizando que se cumplan ciertas condiciones. Los proxies son útiles para implementar lógica de seguridad, validación y control de acceso en objetos JavaScript, lo que permite un manejo más seguro y personalizado de los datos.
+
+<br>
+
+### Propiedades dinámicas de los objetos
+En JavaScript, las propiedades dinámicas permiten la creación y modificación de propiedades de objetos de manera flexible y dinámica. A continuación, se muestra un ejemplo que ilustra cómo trabajar con propiedades dinámicas en objetos:
+
+```javascript
+// Genera un número aleatorio entre 0 y 100
+let aleatorio = Math.round(Math.random() * 100);
+
+// Crea un objeto 'objUsuarios' con una propiedad dinámica
+const objUsuarios = {
+  [`id${aleatorio}`]: "Valor aleatorio",
+};
+console.log(objUsuarios);
+
+const usuarios = ["Pirlo", "Gatusso", "Shevchenko", "Kaká"];
+
+// Agrega dinámicamente propiedades al objeto 'objUsuarios' a partir del arreglo 'usuarios'
+usuarios.forEach(
+  (usuario, index) => (objUsuarios[`id${index}`] = usuario)
+);
+
+console.log(objUsuarios);
+```
+
+Las propiedades dinámicas son útiles cuando necesitas agregar o manipular propiedades de objetos de manera dinámica, como cuando trabajas con datos variables o generados aleatoriamente. Este enfoque proporciona flexibilidad en la estructura de tus objetos y es comúnmente utilizado en situaciones donde las propiedades no son conocidas de antemano.
+
+<br>
+
