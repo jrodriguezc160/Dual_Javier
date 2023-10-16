@@ -72,3 +72,50 @@ console.log($linkDOM.dataset.description);
 console.log($linkDOM.hasAttribute("data-id")); // Comprueba si el elemento tiene el Data Attribute 'data-id'.
 $linkDOM.removeAttribute("data-id"); // Elimina el Data Attribute 'data-id'.
 console.log($linkDOM.hasAttribute("data-id"));
+
+
+
+// Curso JavaScript: 64. DOM: Estilos y Variables CSS
+
+console.warn("***** CSS *****");
+
+const $linkDOM = document.querySelector(".link-dom"); // Declaramos constantes del DOM con un $ delante
+
+console.log($linkDOM.style);
+console.log($linkDOM.getAttribute("style"));
+console.log($linkDOM.style.backgroundColor);
+console.log($linkDOM.style.color);
+console.log(window.getComputedStyle($linkDOM));
+console.log(getComputedStyle($linkDOM).getPropertyValue("color"));
+
+$linkDOM.style.setProperty("text-decoration", "none");
+$linkDOM.style.setProperty("display", "block");
+$linkDOM.style.width = "50%";
+$linkDOM.style.textAlign = "center";
+$linkDOM.style.marginLeft = "auto";
+$linkDOM.style.marginRight = "auto";
+$linkDOM.style.padding = "1rem";
+$linkDOM.style.borderRadius = ".5rem";
+
+console.log($linkDOM.style);
+console.log($linkDOM.getAttribute("style"));
+console.log(window.getComputedStyle($linkDOM));
+
+// Variables CSS - Custom properties
+const $html = document.documentElement,
+  $body = document.body;
+
+let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"),
+  varWhiteColor = getComputedStyle($html).getPropertyValue("--white-color"),
+  varBlueColor = getComputedStyle($html).getPropertyValue("--light-blue");
+
+console.log(varDarkColor, varWhiteColor, varBlueColor);
+
+$body.style.backgroundColor = varDarkColor;
+$body.style.color = varWhiteColor;
+$linkDOM.style.backgroundColor = varBlueColor;
+$linkDOM.style.color = varWhiteColor;
+
+$html.style.setProperty("--dark-color", "#000");
+varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
+$body.style.backgroundColor = varDarkColor;
