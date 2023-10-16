@@ -40,30 +40,35 @@ console.log(document.querySelectorAll("#menu li"));
 
 console.warn("***** ATRIBUTOS & DATA-ATTRIBUTES *****");
 
-// document y getAttribute parecen apuntar al mismo sitio, pero no es así
-console.log(document.documentElement.lang); // en
-console.log(document.documentElement.getAttribute("lang")); // en
+// Acceso a atributos y Data Attributes
+console.log(document.documentElement.lang); // Accede al atributo 'lang' del elemento raíz (<html>) directamente.
+console.log(document.documentElement.getAttribute("lang")); // Utiliza getAttribute para obtener el valor del atributo 'lang'.
+console.log(document.querySelector(".link-dom").href); // Accede a la propiedad 'href' del elemento seleccionado con querySelector.
+console.log(document.querySelector(".link-dom").getAttribute("href")); // Utiliza getAttribute para obtener el valor del atributo 'href'.
 
-console.log(document.querySelector(".link-dom").href); // http://127.0.0.1:5500/dom.html
-console.log(document.querySelector(".link-dom").getAttribute("href")); // dom.html
-
-
-// Al igual que existe getAttribute, también existe setAttribute
-document.documentElement.lang = "es";
+// Cambio de valor de atributos
+document.documentElement.lang = "es"; // Cambia el valor del atributo 'lang' directamente.
+console.log(document.documentElement.lang);
+document.documentElement.setAttribute("lang", "fr"); // Utiliza setAttribute para cambiar el valor del atributo 'lang'.
 console.log(document.documentElement.lang);
 
-document.documentElement.setAttribute("lang", "fr");
-console.log(document.documentElement.lang);
+// Trabajo con setAttribute y otros métodos
+const $linkDOM = document.querySelector(".link-dom");
+$linkDOM.setAttribute("target", "_blank"); // Agrega el atributo 'target' con el valor '_blank'.
+$linkDOM.setAttribute("href", "https://youtube.com/jonmircha"); // Cambia el valor del atributo 'href'.
+$linkDOM.setAttribute("rel", "noopener"); // Agrega el atributo 'rel' con el valor 'noopener'.
+console.log($linkDOM.hasAttribute("rel")); // Comprueba si el elemento tiene el atributo 'rel'.
+$linkDOM.removeAttribute("rel"); // Elimina el atributo 'rel'.
+console.log($linkDOM.hasAttribute("rel"));
 
-
-// Trabajamos con setAttribute...
-const $linkDOM = document.querySelector(".link-dom"); // Declaramos constantes del DOM con un $ delante
-
-$linkDOM.setAttribute("target", "_blank");
-$linkDOM.setAttribute("href", "https://youtube.com/jonmircha");
-
-$linkDOM.setAttribute("rel", "noopener");
-console.log($linkDOM.hasAttribute("rel")); // true
-
-$linkDOM.removeAttribute("rel");
-console.log($linkDOM.hasAttribute("rel")); // false
+// Data-Attributes
+console.log($linkDOM.getAttribute("data-description")); // Accede al valor del Data Attribute 'data-description'.
+console.log($linkDOM.dataset); // Accede a todos los Data Attributes del elemento a través de la propiedad 'dataset'.
+console.log($linkDOM.dataset.description); // Accede a un Data Attribute específico ('description') a través de 'dataset'.
+$linkDOM.setAttribute("data-description", "Modelo de Objeto del Documento"); // Cambia el valor del Data Attribute 'data-description'.
+console.log($linkDOM.dataset.description);
+$linkDOM.dataset.description = "Suscríbete al canal de Jon MirCha"; // Cambia el valor de 'description' utilizando 'dataset'.
+console.log($linkDOM.dataset.description);
+console.log($linkDOM.hasAttribute("data-id")); // Comprueba si el elemento tiene el Data Attribute 'data-id'.
+$linkDOM.removeAttribute("data-id"); // Elimina el Data Attribute 'data-id'.
+console.log($linkDOM.hasAttribute("data-id"));
