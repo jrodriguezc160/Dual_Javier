@@ -119,3 +119,53 @@ $linkDOM.style.color = varWhiteColor;
 $html.style.setProperty("--dark-color", "#000");
 varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 $body.style.backgroundColor = varDarkColor;
+
+
+
+// Curso JavaScript: 66. DOM: Texto y HTML
+
+console.warn("***** CSS *****");
+
+// Seleccionamos el elemento HTML con la clase "card" y lo almacenamos en la variable $card
+const $card = document.querySelector(".card");
+
+// Mostramos en la consola el elemento $card
+console.log($card);
+
+// Mostramos en la consola la clase del elemento $card
+console.log($card.className);
+
+// Añadimos la clase "rotate-45" al elemento $card y comprobamos si la contiene
+$card.classList.add("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+
+// Mostramos en la consola el elemento $card (que ahora contiene la clase "rotate-45")
+console.log($card);
+
+// Mostramos en la consola la clase actual del elemento $card
+console.log($card.className);
+
+// Eliminamos la clase "rotate-45" del elemento $card y comprobamos si la contiene
+$card.classList.remove("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+
+// Alternamos la clase "rotate-45" en el elemento $card y comprobamos si la contiene
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+
+// Alternamos nuevamente la clase "rotate-45" en el elemento $card y comprobamos si la contiene
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+
+// Alternamos una vez más la clase "rotate-45" en el elemento $card y comprobamos si la contiene
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+
+// Reemplazamos la clase "rotate-45" por "rotate-135" en el elemento $card y comprobamos si aún contiene "rotate-45"
+$card.classList.replace("rotate-45", "rotate-135");
+console.log($card.classList.contains("rotate-45"));
+
+// Añadimos las clases "opacity-80" y "sepia" al elemento $card, luego las eliminamos y las alternamos
+$card.classList.add("opacity-80", "sepia");
+$card.classList.remove("opacity-80", "sepia");
+$card.classList.toggle("opacity-80", "sepia");
