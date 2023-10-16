@@ -1,4 +1,4 @@
-// Curso JavaScript: 60. DOM: Introducción
+// Curso JavaScript: 61. DOM: Introducción
 
 console.warn("***** ELEMENTOS DEL DOM *****");
 
