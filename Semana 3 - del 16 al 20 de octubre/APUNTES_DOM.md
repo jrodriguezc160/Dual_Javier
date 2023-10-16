@@ -197,4 +197,42 @@ $body.style.backgroundColor = varDarkColor; // Aplica el nuevo valor de la varia
 
 Trabajar con estilos y variables CSS te brinda un mayor control sobre la apariencia de tu página y la capacidad de cambiar dinámicamente los estilos en función de eventos o acciones del usuario.
 <br><br>
-### Clases CSS
+### Clases CSS en el DOM
+
+El DOM te permite manipular las clases CSS de los elementos HTML. A continuación, se muestra cómo trabajar con clases en JavaScript:
+
+```javascript
+console.warn("***** CSS *****");
+
+const $card = document.querySelector(".card");
+console.log($card);
+console.log($card.className); // Accede y muestra la lista de clases del elemento.
+
+// Añadir una clase
+$card.classList.add("rotate-45"); // Añade la clase "rotate-45" al elemento.
+console.log($card.classList.contains("rotate-45")); // Comprueba si el elemento contiene la clase "rotate-45".
+console.log($card);
+
+// Eliminar una clase
+$card.classList.remove("rotate-45"); // Elimina la clase "rotate-45" del elemento.
+console.log($card.classList.contains("rotate-45"));
+
+// Alternar una clase
+$card.classList.toggle("rotate-45"); // Agrega o elimina la clase "rotate-45" según su estado actual.
+console.log($card.classList.contains("rotate-45"));
+
+// Reemplazar una clase
+$card.classList.replace("rotate-45", "rotate-135"); // Reemplaza la clase "rotate-45" por "rotate-135".
+console.log($card.classList.contains("rotate-45"));
+
+// Trabajar con múltiples clases
+$card.classList.add("opacity-80", "sepia"); // Agrega múltiples clases.
+$card.classList.remove("opacity-80", "sepia"); // Elimina múltiples clases.
+$card.classList.toggle("opacity-80", "sepia"); // Alterna múltiples clases.
+```
+
+- `classList` proporciona métodos para agregar, eliminar, comprobar y alternar clases CSS en elementos HTML.
+
+- Puedes agregar, eliminar, comprobar o alternar una sola clase o múltiples clases al mismo tiempo.
+
+Manipular clases en el DOM es útil para cambiar el aspecto y comportamiento de elementos HTML en respuesta a eventos o interacciones del usuario, lo que facilita la creación de aplicaciones web dinámicas.
