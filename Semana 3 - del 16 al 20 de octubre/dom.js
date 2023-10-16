@@ -122,27 +122,18 @@ $body.style.backgroundColor = varDarkColor;
 
 
 
-// Curso JavaScript: 66. DOM: Texto y HTML
+// Curso JavaScript: 65. DOM: Clases CSS
 
 console.warn("***** CSS *****");
 
-// Seleccionamos el elemento HTML con la clase "card" y lo almacenamos en la variable $card
 const $card = document.querySelector(".card");
-
-// Mostramos en la consola el elemento $card
 console.log($card);
-
-// Mostramos en la consola la clase del elemento $card
 console.log($card.className);
 
 // Añadimos la clase "rotate-45" al elemento $card y comprobamos si la contiene
 $card.classList.add("rotate-45");
 console.log($card.classList.contains("rotate-45"));
-
-// Mostramos en la consola el elemento $card (que ahora contiene la clase "rotate-45")
 console.log($card);
-
-// Mostramos en la consola la clase actual del elemento $card
 console.log($card.className);
 
 // Eliminamos la clase "rotate-45" del elemento $card y comprobamos si la contiene
