@@ -140,12 +140,61 @@ console.log($linkDOM.hasAttribute("data-id"));
 - **Data-Attributes**: Los Data-Attributes permiten almacenar información personalizada en elementos HTML. Se acceden a través de la propiedad `dataset` y se pueden utilizar para almacenar datos relacionados con el elemento sin afectar la validación del HTML.
 
 El acceso y manipulación de atributos es fundamental en la interacción con el DOM, ya que te permite personalizar la forma en que los elementos se comportan y se presentan en la página web.
-
-
 <br><br>
-### Estilos y Variables CSS
+### Estilos y Variables CSS en el DOM
 
+En el DOM, puedes acceder y modificar los estilos de elementos HTML, además de utilizar variables CSS personalizadas (custom properties). A continuación, se muestra cómo trabajar con estilos y variables CSS:
 
+```javascript
+console.warn("***** CSS *****");
 
+const $linkDOM = document.querySelector(".link-dom");
+
+console.log($linkDOM.style); // Accede a los estilos inline del elemento.
+console.log($linkDOM.getAttribute("style")); // Obtiene el atributo 'style' del elemento.
+console.log($linkDOM.style.backgroundColor); // Accede a una propiedad de estilo específica.
+console.log($linkDOM.style.color);
+console.log(window.getComputedStyle($linkDOM)); // Obtiene todos los estilos computados.
+console.log(getComputedStyle($linkDOM).getPropertyValue("color")); // Obtiene el valor de una propiedad específica.
+
+// Modificación de estilos
+$linkDOM.style.setProperty("text-decoration", "none"); // Establece una propiedad de estilo.
+$linkDOM.style.setProperty("display", "block");
+$linkDOM.style.width = "50%"; // Modifica el ancho del elemento.
+$linkDOM.style.textAlign = "center";
+$linkDOM.style.marginLeft = "auto";
+$linkDOM.style.marginRight = "auto";
+$linkDOM.style.padding = "1rem";
+$linkDOM.style.borderRadius = ".5rem";
+
+console.log($linkDOM.style); // Muestra los estilos modificados.
+console.log($linkDOM.getAttribute("style"));
+console.log(window.getComputedStyle($linkDOM));
+
+// Variables CSS - Custom properties
+const $html = document.documentElement,
+  $body = document.body;
+
+let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"), // Accede al valor de una variable CSS personalizada.
+  varWhiteColor = getComputedStyle($html).getPropertyValue("--white-color"),
+  varBlueColor = getComputedStyle($html).getPropertyValue("--light-blue");
+
+console.log(varDarkColor, varWhiteColor, varBlueColor);
+
+$body.style.backgroundColor = varDarkColor; // Aplica el valor de la variable a los estilos.
+$body.style.color = varWhiteColor;
+$linkDOM.style.backgroundColor = varBlueColor;
+$linkDOM.style.color = varWhiteColor;
+
+$html.style.setProperty("--dark-color", "#000"); // Cambia el valor de una variable CSS personalizada.
+varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
+$body.style.backgroundColor = varDarkColor; // Aplica el nuevo valor de la variable a los estilos.
+```
+
+- **Estilos del DOM**: Puedes acceder y modificar los estilos de un elemento HTML utilizando la propiedad `style`. Para obtener estilos computados, utiliza `getComputedStyle()`.
+
+- **Variables CSS personalizadas**: Puedes definir variables CSS personalizadas en tu hoja de estilo y acceder a ellas con JavaScript para personalizar el aspecto de tu página de manera dinámica.
+
+Trabajar con estilos y variables CSS te brinda un mayor control sobre la apariencia de tu página y la capacidad de cambiar dinámicamente los estilos en función de eventos o acciones del usuario.
 <br><br>
 ### Clases CSS
