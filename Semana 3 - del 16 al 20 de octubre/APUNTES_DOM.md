@@ -9,22 +9,21 @@ El Document Object Model, o DOM, es una representación en memoria de una págin
 console.warn("***** ELEMENTOS DEL DOM *****");
 
 // Acceso a objetos del DOM
-console.log(document); // Accede al objeto Document
+console.log(document);
 
 // Acceso a elementos específicos del DOM
-console.log(document.head); // Accede al elemento 'head' del documento
-console.log(document.body); // Accede al elemento 'body' del documento
-console.log(document.documentElement); // Accede al elemento 'html' del documento
-console.log(document.doctype); // Accede al tipo de documento (DTD)
-console.log(document.characterSet); // Accede al conjunto de caracteres de la página
-console.log(document.title); // Accede al título de la página
-console.log(document.links); // Accede a los enlaces (etiquetas 'a') de la página
-console.log(document.images); // Accede a las imágenes (etiquetas 'img') de la página
-console.log(document.forms); // Accede a los formularios de la página
-console.log(document.styleSheets); // Accede a las hojas de estilo de la página
-console.log(document.scripts); // Accede a los scripts de la página
+console.log(document.head);
+console.log(document.body);
+console.log(document.documentElement);
+console.log(document.doctype);
+console.log(document.characterSet);
+console.log(document.title);
+console.log(document.links);
+console.log(document.images);
+console.log(document.forms);
+console.log(document.styleSheets);
+console.log(document.scripts);
 
-// Acceso a la selección del usuario (lo seleccionado en la página)
 setTimeout(() => {
   console.log(document.getSelection().toString());
 }, 3000);
