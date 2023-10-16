@@ -56,12 +56,39 @@ setTimeout(() => {
 - **`document.getSelection()`**: Permite acceder a la selección de texto realizada por el usuario en la página, lo que puede ser útil para realizar acciones específicas con el texto seleccionado.
 
 El DOM es una parte esencial de la programación web en JavaScript y te permite interactuar dinámicamente con elementos de una página, modificar su contenido, estructura y estilo, y responder a eventos del usuario.
-
 <br><br>
-### Nodos, Elementos y Selectores
+### Nodos, Elementos y Selectores en el DOM
 
+En el DOM, los elementos HTML se organizan en una estructura jerárquica como un árbol, y cada parte de esta estructura se conoce como un nodo. Para acceder a los elementos y nodos del DOM, puedes utilizar distintos métodos y selectores. A continuación, se presentan ejemplos de estos métodos:
 
+```javascript
+// Deprecated (no se recomienda su uso)
+console.log(document.getElementsByTagName("li"));
+console.log(document.getElementsByClassName("card"));
+console.log(document.getElementsByName("nombre"));
 
+// Usable (métodos y selectores modernos)
+console.log(document.getElementById("menu"));
+console.log(document.querySelector(".card"));
+document.querySelectorAll("a").forEach((el) => console.log(el));
+console.log(document.querySelectorAll("#menu li"));
+```
+
+- **`document.getElementsByTagName("tagname")`**: Obtiene todos los elementos con un nombre de etiqueta específico (como "li" para elementos de lista). Este método está obsoleto y no se recomienda su uso.
+
+- **`document.getElementsByClassName("classname")`**: Obtiene todos los elementos que tienen una clase CSS específica. Este método también está obsoleto.
+
+- **`document.getElementsByName("name")`**: Obtiene elementos por su atributo "name". Al igual que los anteriores, este método se considera obsoleto.
+
+- **`document.getElementById("id")`**: Obtiene un elemento por su ID, lo que es más eficiente que el uso de `querySelector` para esta tarea.
+
+- **`document.querySelector("selector")`**: Obtiene el primer elemento que coincide con un selector CSS específico. Es útil cuando necesitas seleccionar elementos de una manera más precisa.
+
+- **`document.querySelectorAll("selector")`**: Obtiene todos los elementos que coinciden con un selector CSS y devuelve una lista (NodeList). Puedes recorrer esta lista para acceder a los elementos individuales.
+
+- **`document.querySelectorAll("element selector")`**: Permite seleccionar elementos específicos dentro de un elemento padre. En el ejemplo, se seleccionan todos los elementos `<li>` dentro del elemento con el ID "menu".
+
+Es importante utilizar los métodos y selectores modernos (como `getElementById`, `querySelector` y `querySelectorAll`) en lugar de los métodos obsoletos para un código más eficiente y mantenible.
 <br><br>
 ### Atributos y Data-Attributes
 
