@@ -90,8 +90,56 @@ console.log(document.querySelectorAll("#menu li"));
 
 Es importante utilizar los métodos y selectores modernos (como `getElementById`, `querySelector` y `querySelectorAll`) en lugar de los métodos obsoletos para un código más eficiente y mantenible.
 <br><br>
-### Atributos y Data-Attributes
+### Atributos y Data-Attributes en el DOM
 
+En el DOM, puedes acceder y manipular los atributos de los elementos HTML, así como los Data-Attributes que se utilizan para almacenar información personalizada en un elemento. A continuación, se explican estos conceptos con ejemplos:
+
+```javascript
+console.warn("***** ATRIBUTOS & DATA-ATTRIBUTES *****");
+
+// Acceso a atributos
+console.log(document.documentElement.lang);
+console.log(document.documentElement.getAttribute("lang")); 
+console.log(document.querySelector(".link-dom").href); 
+console.log(document.querySelector(".link-dom").getAttribute("href"));
+
+// Cambio de valor de atributos
+document.documentElement.lang = "es"; 
+console.log(document.documentElement.lang);
+document.documentElement.setAttribute("lang", "fr"); 
+console.log(document.documentElement.lang);
+
+// Trabajo con setAttribute y otros métodos
+const $linkDOM = document.querySelector(".link-dom");
+$linkDOM.setAttribute("target", "_blank"); 
+$linkDOM.setAttribute("href", "https://youtube.com/jonmircha");
+$linkDOM.setAttribute("rel", "noopener");
+console.log($linkDOM.hasAttribute("rel")); 
+$linkDOM.removeAttribute("rel");
+console.log($linkDOM.hasAttribute("rel"));
+
+// Data-Attributes
+console.log($linkDOM.getAttribute("data-description")); 
+console.log($linkDOM.dataset);
+console.log($linkDOM.dataset.description);
+$linkDOM.setAttribute("data-description", "Modelo de Objeto del Documento"); 
+console.log($linkDOM.dataset.description);
+$linkDOM.dataset.description = "Suscríbete al canal de Jon MirCha";
+console.log($linkDOM.dataset.description);
+console.log($linkDOM.hasAttribute("data-id"));
+$linkDOM.removeAttribute("data-id");
+console.log($linkDOM.hasAttribute("data-id"));
+```
+
+- **Acceso a atributos**: Puedes acceder a los atributos de los elementos directamente o utilizando `getAttribute()` para obtener el valor de un atributo específico.
+
+- **Cambio de valor de atributos**: Puedes cambiar el valor de un atributo directamente o utilizando `setAttribute()` para asignar un nuevo valor.
+
+- **Trabajo con `setAttribute` y otros métodos**: Puedes agregar, modificar, comprobar y eliminar atributos utilizando métodos como `setAttribute()`, `hasAttribute()`, y `removeAttribute()`.
+
+- **Data-Attributes**: Los Data-Attributes permiten almacenar información personalizada en elementos HTML. Se acceden a través de la propiedad `dataset` y se pueden utilizar para almacenar datos relacionados con el elemento sin afectar la validación del HTML.
+
+El acceso y manipulación de atributos es fundamental en la interacción con el DOM, ya que te permite personalizar la forma en que los elementos se comportan y se presentan en la página web.
 
 
 <br><br>
