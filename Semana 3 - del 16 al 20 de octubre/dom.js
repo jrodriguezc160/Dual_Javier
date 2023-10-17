@@ -187,3 +187,21 @@ $whatIsDOM.innerHTML = text;
 $whatIsDOM.outerHTML = text;
 
 
+
+console.warn("***** DOM TRAVERSING *****");
+
+const $cards = document.querySelector(".cards");
+
+setTimeout(() => {
+  console.log($cards);
+  console.log($cards.children);
+  console.log($cards.children[2]);
+  console.log($cards.parentElement);
+  console.log($cards.firstElementChild);
+  console.log($cards.lastElementChild);
+  console.log($cards.previousElementSibling);
+  console.log($cards.children[3].closest("section"));
+}, 1000);
+
+
+
