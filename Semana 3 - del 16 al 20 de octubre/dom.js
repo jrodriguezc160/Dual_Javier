@@ -187,6 +187,7 @@ $whatIsDOM.innerHTML = text;
 $whatIsDOM.outerHTML = text;
 
 
+// Curso JavaScript: 67. DOM Traversing: Recorriendo el DOM
 
 console.warn("***** DOM TRAVERSING *****");
 
@@ -204,4 +205,100 @@ setTimeout(() => {
 }, 1000);
 
 
+
+// Curso JavaScript: 68. Creando Elementos y Fragmentos
+
+console.warn("***** CREANDO ELEMENTOS Y FRAGMENTOS *****");
+
+//
+/// ELEMENTOS
+//
+
+/// Forma 1
+const $figure = document.createElement("figure"),
+  $img = document.createElement("img"),
+  $figcaption = document.createElement("figcaption"),
+  $figcaptionText = document.createTextNode("Puppies"),
+  $cards = document.querySelector(".cards"),
+  $figure2 = document.createElement("figure");
+
+$img.setAttribute("src", "https://source.unsplash.com/random/200x200/?puppy");
+$img.setAttribute("alt", "Puppies");
+$figure.classList.add("card");
+
+$figure.appendChild($img);
+$figcaption.appendChild($figcaptionText);
+$figure.appendChild($figcaption);
+$cards.appendChild($figure);
+///
+
+/// Forma 2
+$figure2.innerHTML = `
+    <img src="https://source.unsplash.com/random/200x200/?kitten" alt="Kittens">
+    <figcaption>Kittens</figcaption>
+`;
+
+$figure2.classList.add("card");
+$cards.appendChild($figure2);
+///
+
+/// Forma 3
+const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"],
+  $ul = document.createElement("ul");
+
+document.write("<h3>Estaciones del año</h3>");
+document.body.appendChild($ul);
+
+estaciones.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $ul.appendChild($li);
+});
+///
+
+/// Forma 4
+const continentes = ["Europa", "Asia", "Oceanía", "África", "América"],
+  $ul2 = document.createElement("ul");
+
+document.write("<h3>Continentes del mundo</h3>");
+document.body.appendChild($ul2);
+
+continentes.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`));
+///
+
+//
+/// FRAGMENTOS
+//
+
+// Ejemplo 1
+const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ],
+  $ul3 = document.createElement("ul"),
+  $fragment = document.createDocumentFragment();
+
+meses.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $fragment.appendChild($li);
+});
+
+document.write("<h3>Meses del año</h3>");
+$ul3.appendChild($fragment);
+document.body.appendChild($ul3);
+
+
+
+// Curso JavaScript: 69. DOM: Templates HTML
 
