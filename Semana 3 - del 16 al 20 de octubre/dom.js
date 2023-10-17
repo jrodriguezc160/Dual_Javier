@@ -343,4 +343,33 @@ $cards.appendChild($fragment);
 
 
 
-// Curso JavaScript: 70. DOM: Modificando Elementos (Old Style)
+// Curso JavaScript: 70/71. DOM: Modificando Elementos (Old Style vs Cool Style)
+
+// Estilo "old style"
+const targetOldStyle = document.getElementById("target");
+
+const newDivOldStyle = document.createElement("div");
+newDivOldStyle.textContent = "Este es un nuevo div (old style)";
+
+const oldChildOldStyle = targetOldStyle.querySelector("p");
+targetOldStyle.replaceChild(newDivOldStyle, oldChildOldStyle);
+
+const removeChildOldStyle = targetOldStyle.querySelector("ul");
+targetOldStyle.removeChild(removeChildOldStyle);
+
+const pElementOldStyle = targetOldStyle.querySelector("p");
+const newSpanOldStyle = document.createElement("span");
+newSpanOldStyle.textContent = "Este es un nuevo span (old style)";
+targetOldStyle.insertBefore(newSpanOldStyle, pElementOldStyle);
+
+// Estilo "cool style"
+const targetCoolStyle = document.getElementById("target");
+
+const newDivCoolStyle = document.createElement("div");
+newDivCoolStyle.textContent = "Este es un nuevo div (cool style)";
+
+targetCoolStyle.insertAdjacentHTML("beforebegin", "<div>Este es un nuevo div (cool style)</div>");
+
+targetCoolStyle.insertAdjacentHTML("afterend", "<div>Este es un nuevo div (cool style) después del elemento de destino</div>");
+
+targetCoolStyle.insertAdjacentHTML("beforebegin", "<span>Este es un nuevo span (cool style)</span>");
