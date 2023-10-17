@@ -236,3 +236,297 @@ $card.classList.toggle("opacity-80", "sepia"); // Alterna múltiples clases.
 - Puedes agregar, eliminar, comprobar o alternar una sola clase o múltiples clases al mismo tiempo.
 
 Manipular clases en el DOM es útil para cambiar el aspecto y comportamiento de elementos HTML en respuesta a eventos o interacciones del usuario, lo que facilita la creación de aplicaciones web dinámicas.
+<br><br>
+### Texto e HTML en el DOM
+
+El DOM permite trabajar con el contenido textual y HTML de elementos HTML. A continuación, se muestra cómo manipular texto e HTML en JavaScript:
+
+```javascript
+console.warn("***** TEXTO & HTML *****");
+
+const $whatIsDOM = document.getElementById("que-es");
+
+let text = `
+    <p>
+      El Modelo de Objetos del Documento (<b><i>DOM - Document Object Model</i></b>) es un API para documentos HTML y XML.
+    </p>
+    <p>
+      Éste proveé una representación estructural del documento, permitiendo modificar su contenido y presentación visual mediante código JS.
+    </p>
+    <p>
+      <mark>El DOM no es parte de la especificación de JavaScript, es una API para los navegadores.</mark>
+    </p>
+  `;
+
+$whatIsDOM.innerText = text; // Establece el contenido de texto del elemento, evitando la interpretación de etiquetas HTML.
+$whatIsDOM.textContent = text; // Similar a innerText, pero más estándar y con mejor soporte.
+$whatIsDOM.innerHTML = text; // Establece el contenido HTML del elemento, interpretando las etiquetas HTML.
+$whatIsDOM.outerHTML = text; // Reemplaza completamente el elemento con el contenido proporcionado (incluyendo su propia etiqueta).
+```
+
+- `innerText` establece el contenido de texto de un elemento sin interpretar etiquetas HTML, lo que lo hace seguro contra ataques XSS.
+
+- `textContent` funciona de manera similar a `innerText` pero es más estándar y compatible con más navegadores.
+
+- `innerHTML` permite establecer y obtener contenido HTML dentro de un elemento, lo que permite la manipulación de elementos y estilos.
+
+- `outerHTML` reemplaza completamente un elemento y su contenido con el HTML proporcionado, lo que puede usarse para modificar o reemplazar elementos enteros en el DOM.
+
+Estos métodos son esenciales para cambiar dinámicamente el contenido de una página web y crear interacciones más atractivas para los usuarios.
+<br><br>
+### Traversing del DOM: Recorriendo el DOM
+
+Recorrer y explorar la estructura del DOM es una parte fundamental de la manipulación de elementos HTML. Aquí te mostramos cómo navegar por el DOM en JavaScript:
+
+```javascript
+console.warn("***** DOM TRAVERSING *****");
+
+const $cards = document.querySelector(".cards");
+
+setTimeout(() => {
+  console.log($cards); // Selecciona el elemento con la clase "cards".
+  console.log($cards.children); // Obtiene todos los elementos hijos de "cards".
+  console.log($cards.children[2]); // Accede al tercer hijo de "cards".
+  console.log($cards.parentElement); // Accede al elemento padre de "cards".
+  console.log($cards.firstElementChild); // Accede al primer hijo de "cards".
+  console.log($cards.lastElementChild); // Accede al último hijo de "cards".
+  console.log($cards.previousElementSibling); // Accede al elemento hermano anterior de "cards".
+  console.log($cards.children[3].closest("section")); // Busca el elemento "section" más cercano que contiene al cuarto hijo de "cards".
+}, 1000);
+```
+
+- `$cards` es un elemento que representa la selección de un elemento con la clase "cards".
+
+- `$cards.children` devuelve una lista de todos los elementos hijos de `$cards`.
+
+- `$cards.children[2]` accede al tercer elemento hijo de `$cards`.
+
+- `$cards.parentElement` obtiene el elemento padre de `$cards`.
+
+- `$cards.firstElementChild` obtiene el primer elemento hijo de `$cards`.
+
+- `$cards.lastElementChild` obtiene el último elemento hijo de `$cards`.
+
+- `$cards.previousElementSibling` accede al elemento hermano anterior de `$cards`.
+
+- `$cards.children[3].closest("section")` busca el elemento "section" más cercano que contiene al cuarto hijo de `$cards`.
+
+Recorrer el DOM es útil para acceder a elementos específicos y realizar operaciones de manipulación en ellos. Estos métodos te ayudarán a explorar y modificar el contenido de tus páginas web.
+<br><br>
+### Creando Elementos y Fragmentos en el DOM
+
+En JavaScript, puedes crear elementos y fragmentos para construir y manipular el DOM. Aquí se muestran diferentes ejemplos de cómo hacerlo:
+
+```javascript
+console.warn("***** CREANDO ELEMENTOS Y FRAGMENTOS *****");
+
+// Creación de elementos
+const $figure = document.createElement("figure");
+const $img = document.createElement("img");
+const $figcaption = document.createElement("figcaption");
+const $figcaptionText = document.createTextNode("Puppies");
+const $cards = document.querySelector(".cards");
+const $figure2 = document.createElement("figure");
+
+// Establecer atributos y contenido de elementos
+$img.setAttribute("src", "https://source.unsplash.com/random/200x200/?puppy");
+$img.setAttribute("alt", "Puppies");
+$figure.classList.add("card");
+$figure.appendChild($img);
+$figcaption.appendChild($figcaptionText);
+$figure.appendChild($figcaption);
+$cards.appendChild($figure);
+
+$figure2.innerHTML = `
+    <img src="https://source.unsplash.com/random/200x200/?kitten" alt="Kittens">
+    <figcaption>Kittens</figcaption>
+`;
+$figure2.classList.add("card");
+$cards.appendChild($figure2);
+
+// Creación de elementos a partir de arreglos
+const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"];
+const $ul = document.createElement("ul");
+document.write("<h3>Estaciones del año</h3");
+document.body.appendChild($ul);
+estaciones.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $ul.appendChild($li);
+});
+
+// Creación de elementos a partir de arreglos con forma simplificada
+const continentes = ["Europa", "Asia", "Oceanía", "África", "América"];
+const $ul2 = document.createElement("ul");
+document.write("<h3>Continentes del mundo</h3");
+document.body.appendChild($ul2);
+continentes.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`));
+
+// Creación de fragmentos
+const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+const $ul3 = document.createElement("ul");
+const $fragment = document.createDocumentFragment();
+
+meses.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $fragment.appendChild($li);
+});
+
+document.write("<h3>Meses del año</h3>");
+$ul3.appendChild($fragment);
+document.body.appendChild($ul3);
+```
+
+En estos ejemplos, hemos creado elementos y fragmentos y los hemos añadido al DOM. La creación y manipulación de elementos y fragmentos son tareas comunes cuando trabajas con el DOM en JavaScript. Esto te permite construir dinámicamente la estructura de tu página web.
+<br><br>
+### Templates HTML en el DOM
+
+En JavaScript, puedes utilizar plantillas HTML para crear contenido dinámicamente y luego insertarlo en el DOM. Aquí se muestra un ejemplo de cómo usar plantillas HTML:
+
+```javascript
+console.warn("***** TEMPLATES HTML *****");
+
+const $cards = document.querySelector(".cards");
+const $template = document.getElementById("template-card").content;
+const $fragment = document.createDocumentFragment();
+const cardsContent = [
+  {
+    title: "Tecnología",
+    img: "https://source.unsplash.com/random/200x200/?tech",
+  },
+  {
+    title: "Animales",
+    img: "https://source.unsplash.com/random/200x200/?animals",
+  },
+  {
+    title: "Arquitectura",
+    img: "https://source.unsplash.com/random/200x200/?architecture",
+  },
+  {
+    title: "Gente",
+    img: "https://source.unsplash.com/random/200x200/?people",
+  },
+  {
+    title: "Naturaleza",
+    img: "https://source.unsplash.com/random/200x200/?nature",
+  },
+];
+
+cardsContent.forEach((el) => {
+  // Clonamos la plantilla y la modificamos
+  $template.querySelector("img").setAttribute("src", el.img);
+  $template.querySelector("img").setAttribute("alt", el.title);
+  $template.querySelector("figcaption").textContent = el.title;
+
+  let $clone = document.importNode($template, true); // Importamos el nodo de la plantilla
+  $fragment.appendChild($clone); // Añadimos el clon al fragmento
+});
+
+$cards.appendChild($fragment); // Agregamos el fragmento al DOM
+```
+
+En este ejemplo, hemos utilizado una plantilla HTML en el documento con el ID "template-card". Luego, hemos clonado esta plantilla, modificado su contenido y agregado los clones al fragmento. Finalmente, hemos insertado el fragmento en el DOM. Las plantillas HTML son una forma efectiva de crear y agregar contenido dinámicamente a tu página web.
+<br><br>
+### Modificando Elementos en el DOM: Estilo Antiguo vs. Estilo Moderno
+
+En JavaScript, hay varias formas de modificar elementos en el DOM. A continuación, se muestra un ejemplo que compara el estilo antiguo con el estilo moderno:
+
+```javascript
+// Estilo "old style"
+const targetOldStyle = document.getElementById("target");
+
+// Reemplazar un elemento con un nuevo div (old style)
+const newDivOldStyle = document.createElement("div");
+newDivOldStyle.textContent = "Este es un nuevo div (old style)";
+const oldChildOldStyle = targetOldStyle.querySelector("p");
+targetOldStyle.replaceChild(newDivOldStyle, oldChildOldStyle);
+
+// Eliminar un elemento de tipo lista ul (old style)
+const removeChildOldStyle = targetOldStyle.querySelector("ul");
+targetOldStyle.removeChild(removeChildOldStyle);
+
+// Insertar un nuevo span antes de un párrafo (old style)
+const pElementOldStyle = targetOldStyle.querySelector("p");
+const newSpanOldStyle = document.createElement("span");
+newSpanOldStyle.textContent = "Este es un nuevo span (old style)";
+targetOldStyle.insertBefore(newSpanOldStyle, pElementOldStyle);
+
+// Estilo "cool style"
+const targetCoolStyle = document.getElementById("target");
+
+// Insertar un nuevo div antes y después del elemento de destino (cool style)
+targetCoolStyle.insertAdjacentHTML("beforebegin", "<div>Este es un nuevo div (cool style)</div>");
+targetCoolStyle.insertAdjacentHTML("afterend", "<div>Este es un nuevo div (cool style) después del elemento de destino</div>");
+
+// Insertar un nuevo span antes del elemento de destino (cool style)
+targetCoolStyle.insertAdjacentHTML("beforebegin", "<span>Este es un nuevo span (cool style)</span>");
+```
+
+En el estilo "old style," hemos utilizado métodos como `createElement`, `replaceChild`, `removeChild`, y `insertBefore` para modificar el DOM. En contraste, el estilo "cool style" utiliza el método `insertAdjacentHTML`, que proporciona una forma más concisa y moderna de realizar las mismas operaciones. Ambos estilos logran los mismos resultados, pero el estilo moderno puede ser más legible y eficiente en muchos casos.
+<br><br>
+### Manejadores de Eventos en JavaScript
+
+En JavaScript, los manejadores de eventos son una parte fundamental para interactuar con elementos del DOM y responder a las acciones del usuario, como clics, movimientos del mouse, pulsaciones de teclas, entre otros. A continuación, se muestra un ejemplo que ilustra diferentes aspectos relacionados con los manejadores de eventos:
+
+```javascript
+console.warn("***** EVENTOS *****");
+
+// Función que se ejecuta al hacer clic en el elemento con id "evento-semantico"
+function holaMundo() {
+  alert("Hola mundo");
+  console.log(event);
+}
+
+// Obtener el elemento con id "evento-semantico"
+const $eventoSemantico = document.getElementById("evento-semantico");
+
+// Evento semántico: Asignar la función holaMundo al evento onclick
+$eventoSemantico.onclick = holaMundo;
+
+// Evento semántico: Reemplazar la función asociada al evento onclick
+$eventoSemantico.onclick = function (e) {
+  alert("Hola Mundo desde el manejador de eventos semántico");
+  console.log(event);
+};
+
+// Obtener el elemento con id "evento-multiple"
+const $eventoMultiple = document.getElementById("evento-multiple");
+
+// Evento múltiple: Agregar un escuchador de eventos "click" que muestra un alert
+$eventoMultiple.addEventListener("click", () => {
+  alert("Hola Mundo desde un Evento Múltiple");
+});
+
+// Evento múltiple: Agregar otro escuchador de eventos "click" que interactúa con el usuario
+$eventoMultiple.addEventListener("click", () => {
+  let estado = prompt("¿Cómo estás?", "Bien/Mal");
+  if (estado === "Bien") alert("Me alegro por ti;)");
+  if (estado === "Mal") alert("Alégrate bro:P");
+});
+
+// Evento múltiple: Agregar un escuchador de eventos "click" que muestra información del evento en la consola
+$eventoMultiple.addEventListener("click", () => {console.log(event)});
+```
+
+Este ejemplo incluye:
+
+1. Un **evento semántico** que asigna una función directamente al evento `onclick` de un elemento.
+2. Eventos múltiples agregados con `addEventListener` que responden a clics en un elemento. Estos eventos pueden ser independientes y ejecutar diferentes acciones.
+3. El uso de `prompt` para interactuar con el usuario.
+4. La visualización de información del evento en la consola.
+
+El manejo de eventos es una parte fundamental en la programación web para crear interacciones dinámicas y enriquecer la experiencia del usuario.
