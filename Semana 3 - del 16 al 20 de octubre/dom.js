@@ -461,3 +461,45 @@ $divsEventos.forEach((div) => {
     once: true,
   });
 });
+
+
+
+// Curso JavaScript 75. DOM: stopPropagation & preventDefault
+
+console.warn("***** stopPropagation & preventDefault *****");
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+const $linkEventos = document.querySelector(".eventos-flujo a");
+
+console.log($divsEventos);
+
+function flujoEventos(e) {
+  console.log(
+    `Hola, te saluda ${this.className}.\nEl evento lo originó ${e.target.className}`
+  );
+  e.stopPropagation();
+}
+
+$divsEventos.forEach((div) => {
+  // Fase de Burbuja
+  div.addEventListener("click", flujoEventos);
+  // div.addEventListener("click", flujoEventos, false);
+
+  // Fase de Captura
+  // div.addEventListener("click", flujoEventos, true);
+  /* div.addEventListener("click", flujoEventos, {
+    capture: false,
+    once: true,
+  });
+  */
+});
+
+$linkEventos.addEventListener("click", (e) => {
+  alert("Hola, soy tu amigo y docente digital Jonathan MirCha.");
+  e.preventDefault();
+});
+
+
+
+// Curso JavaScript: 76. DOM: Delegación de Eventos
+
