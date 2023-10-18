@@ -12,7 +12,6 @@
         color: var(--white-color);
         --background: #111111 ;
         --white-color: #eeeeee;
-        --second-white-color: #bbbbbb;
         --light-blue: #8aa3e5;
         --on-blue: rgb(178, 65, 231);
         --colors-base-default: #3F3F46;
@@ -49,8 +48,12 @@
         margin-bottom: 1rem;
       }
 
+      button:disabled {
+        color: var(--colors-base-default-light);
+      }
+
       .card figcaption {
-        padding: 1rem;
+        padding: .5rem 2rem;
       }
 
       .rotate-45 {
@@ -99,6 +102,7 @@
     <button onclick="holaMundo()">Hola</button>
     <button id="evento-semantico">Evento con manejador semántico </button>
     <button id="evento-multiple">Evento múltiple </button>
+    <button id="evento-remover">Evento con remove </button>
 
     <section class="cards">
       <figure class="card">
