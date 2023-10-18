@@ -528,3 +528,38 @@ document.addEventListener("click", (e) => {
 
 
 // Curso JavaScript: 77. BOM: Propiedades y Eventos
+
+console.warn("***** BOM *****");
+
+window.addEventListener("resize", (e) => {
+  console.clear();
+  console.log("*** RESIZE ***");
+  console.log(
+    `Tamaño de viewport: ${window.innerHeight} x ${window.innerWidth}`
+  );
+  console.log(
+    `Resolución de pantalla: ${window.outerHeight} x ${window.outerWidth}`
+  );
+  console.log(e);
+});
+
+window.addEventListener("scroll", (e) => {
+  console.log("*** SCROLL ***");
+  console.log(`Scroll X: ${window.scrollX}`);
+  console.log(`Scroll Y: ${window.scrollY}`);
+  console.log(e);
+});
+
+// window.addEventListener("load", (e) => {
+window.addEventListener("DOMContentLoaded", (e) => {
+  console.clear();
+  console.log("*** EVENTO DOMContentLoaded ***");
+  console.log(`X: ${window.screenX}`);
+  console.log(`Y: ${window.screenY}`);
+  console.log(e);
+});
+
+
+
+// Curso JavaScript: 78. BOM: Métodos
+
