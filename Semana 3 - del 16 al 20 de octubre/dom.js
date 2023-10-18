@@ -432,3 +432,32 @@ const removerDobleClick = (e) => {
 };
 
 $eventoRemover.addEventListener("dblclick", removerDobleClick);
+
+
+
+// Curso JavaScript: 74. DOM: Flujo de Eventos (Burbuja y Captura)
+
+console.warn("***** FLUJO DE EVENTOS (BURBUJA Y CAPTURA) *****");
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+
+console.log($divsEventos);
+
+function flujoEventos(e) {
+  console.log(
+    `Hola, te saluda ${this.className}.\nEl evento lo originó ${e.target.className}`
+  );
+}
+
+$divsEventos.forEach((div) => {
+  // Fase de Burbuja
+  // div.addEventListener("click", flujoEventos);
+  // div.addEventListener("click", flujoEventos, false);
+
+  // Fase de Captura
+  // div.addEventListener("click", flujoEventos, true);
+  div.addEventListener("click", flujoEventos, {
+    capture: false,
+    once: true,
+  });
+});
