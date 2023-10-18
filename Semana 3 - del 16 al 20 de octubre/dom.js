@@ -376,42 +376,59 @@ targetCoolStyle.insertAdjacentHTML("beforebegin", "<span>Este es un nuevo span (
 
 
 
-// Curso JavaScript: 72. DOM: Manejadores de Eventos
+// Curso JavaScript: 72/73. DOM: Manejadores de Eventos (semánticos, mútiples, con parámetros, remove...)
 
 console.warn("***** EVENTOS *****");
 
-// Función que se ejecuta al hacer clic en el elemento con id "evento-semantico"
 function holaMundo() {
   alert("Hola mundo");
   console.log(event);
 }
 
-// Obtener el elemento con id "evento-semantico"
+// 
+/// Evento Semántico
+//
 const $eventoSemantico = document.getElementById("evento-semantico");
 
-// Evento semántico: Asignar la función holaMundo al evento onclick
 $eventoSemantico.onclick = holaMundo;
 
-// Evento semántico: Reemplazar la función asociada al evento onclick
 $eventoSemantico.onclick = function (e) {
   alert("Hola Mundo desde el manejador de eventos semántico");
   console.log(event);
 };
 
-// Obtener el elemento con id "evento-multiple"
+// 
+/// Evento Múltiple
+//
 const $eventoMultiple = document.getElementById("evento-multiple");
 
-// Evento múltiple: Agregar un escuchador de eventos "click" que muestra un alert
+function saludar(nombre = "desconocid@") {
+  alert(`Hola ${nombre}`);
+}
+
 $eventoMultiple.addEventListener("click", () => {
   alert("Hola Mundo desde un Evento Múltiple");
 });
 
-// Evento múltiple: Agregar otro escuchador de eventos "click" que interactúa con el usuario
 $eventoMultiple.addEventListener("click", () => {
-  let estado = prompt("¿Cómo estás?", "Bien/Mal");
-  if (estado === "Bien") alert("Me alegro por ti;)");
-  if (estado === "Mal") alert("Alégrate bro:P");
+  saludar();
+  saludar("Charlie")
 });
 
-// Evento múltiple: Agregar un escuchador de eventos "click" que muestra información del evento en la consola
-$eventoMultiple.addEventListener("click", () => {console.log(event)});
+$eventoMultiple.addEventListener("click", () => {
+  console.log(event);
+});
+
+// 
+/// Evento Remover
+//
+const $eventoRemover = document.getElementById("evento-remover");
+
+const removerDobleClick = (e) => {
+  alert("Eliminando Event Listener...");
+  console.log(e);
+  $eventoRemover.removeEventListener("dblclick", removerDobleClick);
+  $eventoRemover.disabled = true;
+};
+
+$eventoRemover.addEventListener("dblclick", removerDobleClick);
