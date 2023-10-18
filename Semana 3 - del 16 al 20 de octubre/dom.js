@@ -502,4 +502,29 @@ $linkEventos.addEventListener("click", (e) => {
 
 
 // Curso JavaScript: 76. DOM: Delegación de Eventos
+// (lo mismo del 75 pero en vez de 35 líneas en 20
 
+console.warn("***** DELEGACIÓN DE EVENTOS *****");
+
+function flujoEventos(e) {
+  console.log(
+    `Hola, te saluda ${this.className}.\nEl evento lo originó ${e.target.className}`
+  );
+}
+
+document.addEventListener("click", (e) => {
+  console.log("Click en ", e.target);
+
+  if (e.target.matches(".eventos-flujo div")) {
+    flujoEventos(e);
+  }
+
+  if (e.target.matches(".eventos-flujo a")) {
+    alert("Hola, soy tu amigo y docente digital... Jonathan MirCha");
+    e.preventDefault();
+  }
+});
+
+
+
+// Curso JavaScript: 77. BOM: Propiedades y Eventos
