@@ -26,5 +26,6 @@ Además del DOM (Document Object Model) también hemos estado estudiando el BOM 
 - Objetos: URL, historial y navegador
 
 <br>
+
 ### Producción
 Actualmente nos encontramos realizando ejercicios prácticos sobre el DOM y el BOM, en el que estamos poniendo en práctica los conocimientos adquiridos. Estos ejercicios se llevan a cabo a través de varios archivos que conforman una página web. Estos ejercicios prácticos se encuentran en la carpeta <b>ejercicios_practicos</b>.
