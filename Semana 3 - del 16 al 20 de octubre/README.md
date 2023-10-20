@@ -19,11 +19,12 @@ Empezamos la semana adquiriendo conocimientos teóricos sobre JSON y las APIs, q
 - Flujo de eventos (burbuja y captura)
 - stopPropagation y preventDefault
 - Delegación de eventos
-<br>
-Además del DOM (Document Object Model) también hemos estado estudiando el BOM (Browser Object Model), viendo los siguientes apartados:<br>
+
+Además del DOM (Document Object Model) también hemos estado estudiando el BOM (Browser Object Model), viendo los siguientes apartados:
 - Propiedades y eventos del BOM
 - Métodos del BOM
 - Objetos: URL, historial y navegador
+
 <br>
 ### Producción
 Actualmente nos encontramos realizando ejercicios prácticos sobre el DOM y el BOM, en el que estamos poniendo en práctica los conocimientos adquiridos. Estos ejercicios se llevan a cabo a través de varios archivos que conforman una página web. Estos ejercicios prácticos se encuentran en la carpeta <b>ejercicios_practicos</b>.
