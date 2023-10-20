@@ -6,7 +6,7 @@ Duplicar línea: Alt + Shift + Abajo<br>
 Mover línea: Alt + Abajo<br>
 Seleccionar múltiples etiquetas: Ctrl + D
 
-<br><br>
+<br>
 
 ### Interpolación
 Al igual que la concatenación, la interpolación sirve para usar variables dentro de una cadena de texto.<br>
