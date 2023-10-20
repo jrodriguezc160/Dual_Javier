@@ -3,6 +3,13 @@ A partir de los ejercicios propuestos por el curso que nos facilitó la empresa,
 <br>
 Estas son algunas capturas de pantalla de lo que llevamos de trabajo:
 ![image](https://github.com/jrodriguezc160/Dual_Javier/assets/131864274/244c2d8f-bdbb-41bc-b001-94be8248e5f6)
+Primera sección (ejercicio práctico usando el método Date)
+<br>
 ![image](https://github.com/jrodriguezc160/Dual_Javier/assets/131864274/7cead90c-f647-4695-8ebe-7d5d50a6ccae)
+Hover y estado de los botones
+<br>
 ![image](https://github.com/jrodriguezc160/Dual_Javier/assets/131864274/bef62a51-c995-4e9a-89a6-5a8dda8a3b46)
+Reloj funcional con botones para iniciarlo y pararlo. La práctica también incluye una alarma sonora que también funciona.
+<br>
 ![image](https://github.com/jrodriguezc160/Dual_Javier/assets/131864274/02659aa8-809f-422d-ad40-a24601ec25e1)
+Menú de pantalla completa que aparece cuando hacemos click en el menú de hamburguesa que se encuentra abajo a la derecha.
