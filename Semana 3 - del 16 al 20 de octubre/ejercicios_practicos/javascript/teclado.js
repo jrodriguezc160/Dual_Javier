@@ -15,21 +15,21 @@ export function moveBall(e, ball, stage) {
   switch (e.keyCode) {
     case 37:
       // move("left");
-      if (limitsBall.left > limitsStage.left + 5) {
+      if (limitsBall.left > limitsStage.left + 45) {
         e.preventDefault();
         x--;
       }
       break;
     case 38:
       // move("top");
-      if (limitsBall.top > limitsStage.top + 5) {
+      if (limitsBall.top > limitsStage.top + 45) {
         e.preventDefault();
         y--;
       }
       break;
     case 39:
       // move("right");
-      if (limitsBall.right > limitsStage.right - 5) {
+      if (limitsBall.right > limitsStage.right - 45) {
         e.preventDefault();
         x--;
       }
@@ -37,7 +37,7 @@ export function moveBall(e, ball, stage) {
       break;
     case 40:
       // move("down");
-      if (limitsBall.bottom < limitsStage.bottom - 5) {
+      if (limitsBall.bottom < limitsStage.bottom - 45) {
         e.preventDefault();
         y++;
       }
