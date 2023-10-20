@@ -530,3 +530,203 @@ Este ejemplo incluye:
 4. La visualización de información del evento en la consola.
 
 El manejo de eventos es una parte fundamental en la programación web para crear interacciones dinámicas y enriquecer la experiencia del usuario.
+<br><br>
+### Flujo de Eventos en el DOM: Burbuja y Captura
+
+En JavaScript, los eventos en el Document Object Model (DOM) siguen un flujo de propagación que puede ser de burbuja o de captura. A continuación, se presenta un ejemplo que ilustra cómo funcionan estos dos tipos de flujo:
+
+```javascript
+console.warn("***** FLUJO DE EVENTOS (BURBUJA Y CAPTURA) *****");
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+
+console.log($divsEventos);
+
+function flujoEventos(e) {
+  console.log(
+    `Hola, te saluda ${this.className}.\nEl evento lo originó ${e.target.className}`
+  );
+}
+
+$divsEventos.forEach((div) => {
+  // Fase de Burbuja
+  // div.addEventListener("click", flujoEventos);
+  // div.addEventListener("click", flujoEventos, false);
+
+  // Fase de Captura
+  // div.addEventListener("click", flujoEventos, true);
+  div.addEventListener("click", flujoEventos, {
+    capture: false,
+    once: true,
+  });
+});
+```
+
+Este ejemplo contiene:
+
+1. Un conjunto de elementos `<div>` con diferentes clases.
+2. Un manejador de eventos `flujoEventos`.
+3. Cuatro líneas de código para registrar los elementos `<div>` y configurar los manejadores de eventos, tanto en fase de burbuja como en fase de captura.
+
+Puedes observar las diferencias en el flujo de eventos al alternar entre la fase de burbuja y la fase de captura al descomentar o comentar las líneas apropiadas.
+
+El flujo de eventos es fundamental para comprender cómo se propagan y se capturan los eventos en el DOM, lo que permite crear interacciones más complejas en aplicaciones web.
+<br><br>
+// Curso JavaScript 75. DOM: stopPropagation & preventDefault
+
+console.warn("***** stopPropagation & preventDefault *****");
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+const $linkEventos = document.querySelector(".eventos-flujo a");
+
+console.log($divsEventos);
+
+function flujoEventos(e) {
+  console.log(
+    `Hola, te saluda ${this.className}.\nEl evento lo originó ${e.target.className}`
+  );
+  e.stopPropagation();
+}
+
+$divsEventos.forEach((div) => {
+  // Fase de Burbuja
+  div.addEventListener("click", flujoEventos);
+  // div.addEventListener("click", flujoEventos, false);
+
+  // Fase de Captura
+  // div.addEventListener("click", flujoEventos, true);
+  /* div.addEventListener("click", flujoEventos, {
+    capture: false,
+    once: true,
+  });
+  */
+});
+
+$linkEventos.addEventListener("click", (e) => {
+  alert("Hola, soy tu amigo y docente digital Jonathan MirCha.");
+  e.preventDefault();
+});
+<br><br>
+### Delegación de Eventos en el DOM
+
+La delegación de eventos es una técnica en JavaScript que aprovecha el flujo de propagación de eventos en el Document Object Model (DOM) para manejar eventos en múltiples elementos de manera eficiente. A continuación, se muestra un ejemplo de delegación de eventos:
+
+```javascript
+console.warn("***** DELEGACIÓN DE EVENTOS *****");
+
+function flujoEventos(e) {
+  console.log(
+    `Hola, te saluda ${this.className}.\nEl evento lo originó ${e.target.className}`
+  );
+}
+
+document.addEventListener("click", (e) => {
+  console.log("Click en ", e.target);
+
+  if (e.target.matches(".eventos-flujo div")) {
+    flujoEventos(e);
+  }
+
+  if (e.target.matches(".eventos-flujo a")) {
+    alert("Hola, soy tu amigo y docente digital... Jonathan MirCha");
+    e.preventDefault();
+  }
+});
+```
+
+En este ejemplo:
+
+1. Se agrega un manejador de eventos al documento para capturar eventos de clic (`click`).
+
+2. Dentro del manejador, se verifica si el elemento de destino (`e.target`) coincide con los selectores especificados utilizando `matches()`. Esto permite determinar si un elemento específico, en este caso, las etiquetas `<div>` y `<a>`, ha sido el objetivo del evento.
+
+3. Si el elemento de destino coincide con el selector de las etiquetas `<div>`, se llama a la función `flujoEventos` para gestionar el evento.
+
+4. Si el elemento de destino coincide con el selector de las etiquetas `<a>`, se muestra una alerta y se previene el comportamiento predeterminado del enlace.
+
+Esta técnica es útil cuando tienes múltiples elementos que deben responder a un evento similar, ya que evita la necesidad de asignar un manejador de eventos a cada elemento por separado. En lugar de eso, se aprovecha el flujo de eventos para gestionarlos de manera eficiente.
+<br><br>
+### Propiedades y Eventos del BOM (Browser Object Model)
+
+El Browser Object Model (BOM) en JavaScript proporciona acceso y control sobre la ventana del navegador y sus propiedades. Además, ofrece eventos que permiten detectar y responder a acciones del usuario o cambios en la ventana del navegador. A continuación, se muestran algunas propiedades y eventos del BOM:
+
+```javascript
+console.warn("***** BOM *****");
+
+// Evento de redimensionar la ventana del navegador
+window.addEventListener("resize", (e) => {
+  console.clear();
+  console.log("*** RESIZE ***");
+  console.log(
+    `Tamaño de viewport: ${window.innerHeight} x ${window.innerWidth}`
+  );
+  console.log(
+    `Resolución de pantalla: ${window.outerHeight} x ${window.outerWidth}`
+  );
+  console.log(e);
+});
+
+// Evento de desplazamiento de la página
+window.addEventListener("scroll", (e) => {
+  console.log("*** SCROLL ***");
+  console.log(`Scroll X: ${window.scrollX}`);
+  console.log(`Scroll Y: ${window.scrollY}`);
+  console.log(e);
+});
+
+// Evento que se dispara cuando el DOM ha sido completamente cargado
+window.addEventListener("DOMContentLoaded", (e) => {
+  console.clear();
+  console.log("*** EVENTO DOMContentLoaded ***");
+  console.log(`X: ${window.screenX}`);
+  console.log(`Y: ${window.screenY}`);
+  console.log(e);
+});
+```
+
+En este código:
+
+1. Se agrega un manejador de eventos para el evento `resize` que se dispara cuando el usuario redimensiona la ventana del navegador. Se muestran propiedades como el tamaño de la ventana y la resolución de la pantalla.
+
+2. Se agrega un manejador de eventos para el evento `scroll` que se dispara cuando el usuario desplaza la página. Se muestra la posición actual del desplazamiento en los ejes X e Y.
+
+3. Se agrega un manejador de eventos para el evento `DOMContentLoaded` que se dispara cuando el DOM ha sido completamente cargado. Esto permite realizar acciones después de que se ha construido la estructura del documento HTML.
+
+Estos son ejemplos de cómo puedes utilizar propiedades y eventos del BOM para interactuar con la ventana del navegador y responder a eventos relacionados con el usuario y el documento HTML.
+<br><br>
+### Métodos del BOM (Browser Object Model)
+
+El Browser Object Model (BOM) en JavaScript proporciona una variedad de métodos que te permiten controlar aspectos de la ventana del navegador. A continuación, se muestra un ejemplo de cómo utilizar algunos de estos métodos:
+
+```javascript
+console.warn("***** MÉTODOS DEL BOM *****");
+
+const $btnAbrir = document.getElementById("abrir-ventana"),
+  $btnCerrar = document.getElementById("cerrar-ventana"),
+  $btnImprimir = document.getElementById("imprimir-ventana");
+
+let ventana;
+
+$btnAbrir.addEventListener("click", (e) => {
+  ventana = window.open("https://jonmircha.com");
+});
+
+$btnCerrar.addEventListener("click", (e) => {
+  ventana.close();
+});
+
+$btnImprimir.addEventListener("click", (e) => {
+  window.print();
+});
+```
+
+En este código:
+
+1. Se declara un botón `$btnAbrir` que abre una nueva ventana del navegador utilizando el método `window.open`. En este caso, se abre el sitio web "https://jonmircha.com".
+
+2. Se declara un botón `$btnCerrar` que cierra la ventana abierta anteriormente utilizando el método `close()` de la ventana.
+
+3. Se declara un botón `$btnImprimir` que abre el cuadro de diálogo de impresión del navegador utilizando el método `window.print()`.
+
+Estos son ejemplos de cómo puedes utilizar métodos del BOM para interactuar con ventanas del navegador y realizar acciones como abrir ventanas, cerrarlas o imprimir el contenido de la página.
+<br><br>
