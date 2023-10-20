@@ -19,7 +19,8 @@ Empezamos la semana adquiriendo conocimientos teóricos sobre JSON y las APIs, q
 - Flujo de eventos (burbuja y captura)
 - stopPropagation y preventDefault
 - Delegación de eventos
-<br>Además del DOM (Document Object Model) también hemos estado estudiando el BOM (Browser Object Model), viendo los siguientes apartados:
+<br>
+Además del DOM (Document Object Model) también hemos estado estudiando el BOM (Browser Object Model), viendo los siguientes apartados:
 - Propiedades y eventos del BOM
 - Métodos del BOM
 - Objetos: URL, historial y navegador
