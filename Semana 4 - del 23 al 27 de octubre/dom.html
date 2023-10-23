@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pruebas DOM JS</title>
+
+    <style>
+      :root {
+        margin: 2rem;
+        background-color: var(--background);
+        color: var(--white-color);
+        --background: #111111 ;
+        --white-color: #eeeeee;
+        --light-blue: #8aa3e5;
+        --on-blue: rgb(178, 65, 231);
+        --colors-base-default: #3F3F46;
+        --colors-base-default-light: #7e7e8d;
+        font-family: sans-serif;
+      }
+
+      a {
+        color: var(--light-blue);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--on-blue);
+      }
+
+      .card {
+        display: inline-block;
+        background-color: var(--colors-base-default);
+        color: var(--white-color);
+        border-radius: 1rem;
+        border: 0.05rem solid var(--colors-base-default-light);
+        overflow: hidden;
+      }
+
+      input, button {
+        display: block;
+        background-color: var(--colors-base-default);
+        color: var(--white-color);
+        border-radius: 2rem;
+        border: 0.05rem solid var(--colors-base-default-light);
+        padding: .5rem 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      button:disabled {
+        color: var(--colors-base-default-light);
+      }
+
+      .card figcaption {
+        padding: .5rem 2rem;
+      }
+
+      .rotate-45 {
+        transform: rotate(45deg);
+      }
+
+      .rotate-135 {
+        transform: rotate(135deg);
+      }
+
+      .opacity-80 {
+        opacity: 0.8;
+      }
+
+      .sepia {
+        filter: sepia(1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>JavaScript</h1>
+    <h4>Document Object Model</h4>
+
+    <p id="que-es" style="color: var(--second-white-color);">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+
+    <nav id="menu">
+      <ul>
+        <li><a href="#">Sección 1</a></li>
+        <li><a href="#">Sección 2</a></li>
+        <li><a href="#">Sección 3</a></li>
+        <li><a href="#">Sección 4</a></li>
+        <li><a href="#">Sección 5</a></li>
+      </ul>
+    </nav>
+
+    <input type="text" name="nombre" placeholder=" nombre"/>
+
+    <a>DOM</a>
+
+    <button onclick="holaMundo()">Hola</button>
+    <button id="evento-semantico">Evento con manejador semántico </button>
+    <button id="evento-multiple">Evento múltiple </button>
+    <button id="evento-remover">Evento con remove </button>
+
+    <section class="cards">
+      <figure class="card">
+        <img
+          src="https://source.unsplash.com/random/200x200/?tech"
+          alt="Tech"
+        />
+        <figcaption>Tech</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img
+          src="https://source.unsplash.com/random/200x200/?animals"
+          alt="Animals"
+        />
+        <figcaption>Animals</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img
+          src="https://source.unsplash.com/random/200x200/?people"
+          alt="People"
+        />
+        <figcaption>People</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img
+          src="https://source.unsplash.com/random/200x200/?architecture"
+          alt="Arch"
+        />
+        <figcaption>Arch</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img
+          src="https://source.unsplash.com/random/200x200/?nature"
+          alt="Nature"
+        />
+        <figcaption>Nature</figcaption>
+      </figure>
+    </section>
+
+    <template id="template-card">
+      <figure class="card">
+        <img />
+        <figcaption></figcaption>
+      </figure>
+    </template>
+
+    <script src="./dom.js"></script>
+  </body>
+</html>
