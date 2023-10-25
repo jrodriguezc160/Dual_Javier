@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap");
+@import url("https://fonts.cdnfonts.com/css/alarm-clock");
+
+:root {
+  --main-font: "Inter", sans-serif;
+  --clock-font: "alarm clock", sans-serif;
+  --font-size: 15px;
+  --white-1: #eee;
+  --black-1: #00040a;
+  --black-2: #18253a;
+  --blue-1: #1653b4;
+  --main-color: #1653b4;
+  --blue-2: #c4cfdd;  
+  --container-width: 1200px;
+}
+
+html {
+  box-sizing: border-box;
+  color: var(--black-1);
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+  background-color: var(--blue-2);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: 2rem 0 5rem 0;
+  background: linear-gradient(to bottom, #c4cfdd, rgba(0, 0, 0, 0));
+  color: var(--black-1);
+  z-index: 98;
+}
+
+.header h1 {
+  margin: 0 auto;
+  text-align: center;
+  z-index: 98;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+nav {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section {
+  padding: 10rem 0;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-btn {
+  position: fixed;
+  z-index: 99;
+  bottom: 1vh;
+  right: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-color);
+}
+
+button.panel-btn.hamburger.hamburger--vortex {
+  background: var(--blue-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.hamburger-box {
+  background: var(--blue-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.hamburger-inner::before,
+span.hamburger-inner::after,
+span.hamburger-inner {
+  background: var(--blue-2);
+}
+
+.panel {
+  position: fixed;
+  z-index: 98;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
+  transform: translate(0, -100%);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.panel.is-active {
+  transform: translate(0, 0);
+}
+
+.menu {
+  margin-top: 25rem;
+  margin-bottom: 5rem;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+/* .hamburger--squeeze {
+  background-color: var(--blue-1);
+} */
+
+.menu a {
+  font-weight: normal;
+  text-decoration: none;
+  padding: 1rem;
+  width: inherit;
+  display: block;
+  font-size: 1.25rem;
+  color: var(--black-1);
+  transition: font-weight 0.2s ease, text-decoration 1s ease;
+}
+
+.menu a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+a {
+  font-weight: normal;
+  text-decoration: none;
+  color: var(--black-1);
+  transition: font-weight 0.2s ease, text-decoration 1s ease;
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.menu-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.boton, input {
+  width: 125px;
+  padding: 7px 15px;
+  margin: 0px 5px;
+  border-radius: 25px;
+  border: 0px;
+  transition: all 0.3s ease;
+}
+
+.boton:hover, input:hover {
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.relojContenedor {
+  font-size: 50px;
+  font-family: var(--clock-font);
+  background-color: var(--white-1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 15vh;
+  width: 25vw;
+  border-radius: 25px;
+  border: 0;
+  padding: 5px 15px;
+  box-shadow: inset 0px 0px 10px 5px rgb(196, 207, 221, 0.5);
+}
+
+#cuentaRegresivaContenedor {
+  font-size: 20px;
+  font-family: var(--clock-font);
+  background-color: var(--white-1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 15vh;
+  width: 75vw;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 0;
+  padding: 5px 15px;
+  box-shadow: inset 0px 0px 10px 5px rgb(196, 207, 221, 0.5);
+}
+
+/* EVENTOS DEL TECLADO */
+
+.stage {
+  font-size: 50px;
+  font-family: var(--clock-font);
+  background-color: var(--white-1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 67vw;
+  border-radius: 25px;
+  border: 0;
+  z-index: 97;
+  box-shadow: inset 0px 0px 10px 5px rgb(196, 207, 221, 0.5);
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50rem;
+  background-color: var(--blue-1);
+  box-shadow: 0px 0px 10px 5px rgba(151, 182, 221, 0.5);
+  transition: transform 0.2s ease-out;
+  z-index: 97;
+}
+
+.scroll-top-btn {
+  color: var(--blue-2);
+  position: fixed;
+  z-index: 99;
+  bottom: 1vh;
+  right: calc(1vw + 5rem);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-1);
+  transition: all 0.3s ease-out;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--black-1);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dark-theme-btn {
+  color: var(--blue-2);
+  position: fixed;
+  z-index: 99;
+  bottom: 1vh;
+  left: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-1);
+  transition: all 0.3s ease-out;
+}
+
+.dark-theme-btn:hover {
+  background-color: var(--black-1);
+}
+
+.dark-mode {
+  background-color: var(--black-1);
+  color: var(--blue-2);
+}
+
+.dark-mode .relojContenedor,
+.dark-mode #cuentaRegresivaContenedor,
+.dark-mode .stage {
+  background-color: var(--black-2);
+  color: var(--blue-2);
+}
+
+.dark-mode .ball {
+  background-color: var(--blue-2);
+}
+
+.dark-mode .header {
+  background: linear-gradient(to bottom, var(--black-1), rgba(0, 0, 0, 0));
+  color: var(--blue-2);
+}
+
+.dark-mode .boton {
+  background: var(--black-2);
+  color: var(--blue-2);
+}
+
+.dark-mode .menu a {
+  color: var(--blue-2);
+}
+
+.dark-mode a {
+  color: var(--blue-2);
+}
+
+
+/* Detección de conexión */
+
+.panel-aviso-red {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
+}
+
+.online,
+.offline {
+  z-index: 101;
+  font-size: 1rem;
+  background-color: var(--white-1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta el desplazamiento para centrar */
+  height: 10vh;
+  width: 25vw;
+  border-radius: 25px;
+  border: 0;
+  padding: 5px 15px;
+  color: #12A150;
+  background-color: #E8FAF0;
+  transition: transform 0.2s ease;
+}
+
+
+.offline {
+  color: #F31260;
+  background-color: #FEE7EF;
+}
+
+.dark-mode .offline {
+  color: #F31260;
+  background-color: #310413;
+}
+
+.dark-mode .online {
+  color: #74DFA2;
+  background-color: #052814;
+}
