@@ -4,6 +4,7 @@ import countdown from "./countdown.js";
 import userDeviceInfo from "./deteccion_dispositivos.js";
 import networkStatus from "./deteccion_red.js";
 import webCam from "./deteccion_webcam.js";
+import searchFilters from "./filtro_busquedas.js";
 import getGeolocation from "./geolocalizacion.js";
 import hamburgerMenu from "./menu_hamburgesa.js";
 import responsiveMedia from "./objeto_responsive.js";
@@ -46,7 +47,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
   responsiveTester("responsive-tester");
   userDeviceInfo("user-device");
   webCam("webcam");
-  getGeolocation("geolocation")
+  getGeolocation("geolocation");
+  searchFilters(".card-filter", ".card");
 });
 
 darkTheme(".dark-theme-btn", "dark-mode");
