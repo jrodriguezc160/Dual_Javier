@@ -179,7 +179,8 @@ a:hover {
 }
 
 .boton,
-input {
+input, #winner-btn {
+  min-width: fit-content;
   width: 125px;
   padding: 7px 15px;
   margin: 0px 5px;
@@ -401,32 +402,22 @@ input:hover {
   background-color: #052814;
 }
 
+/* Search filters */
+
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 0 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .card {
-  padding: 0px;
-  text-align: center;
-  background-color: var(--blue-2);
-  color: var(--black-1);
+  background-color: var(--second-color);
+  color: var(--main-color);
   transition: all 0.3s ease-out;
 }
 
 .card img {
   width: 100%;
   height: auto;
-}
-
-.contenedorArticle {
-  display: grid;
-  place-items: space-evenly;
-  margin-left: 150px;
-  margin-right: 150px;
-  width: 100vw;
-  height: 100vh;
 }
 
 .card figcaption {
@@ -438,4 +429,25 @@ input:hover {
   visibility: hidden;
   opacity: 0;
   order: 1;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
+
+/* External CSS File (styles.css) */
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  display: block;
+  margin: 0 auto;
+  text-align: center; /* If you want text within list items aligned to the left */
+  margin-bottom: 10px; /* Optional: Add some spacing between list items */
 }
