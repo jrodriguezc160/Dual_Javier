@@ -1,5 +1,6 @@
 import alarmClock from "./javascript/alarma.js";
 import scrollTopButton from "./javascript/boton_scroll.js";
+import slider from "./javascript/carrusel.js";
 import countdown from "./javascript/countdown.js";
 import userDeviceInfo from "./javascript/deteccion_dispositivos.js";
 import networkStatus from "./javascript/deteccion_red.js";
@@ -51,6 +52,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
   getGeolocation("geolocation");
   searchFilters(".card-filter", ".card");
   draw("#winner-btn", ".player");
+  slider();
 });
 
 darkTheme(".dark-theme-btn", "dark-mode");
