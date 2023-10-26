@@ -36,7 +36,7 @@
           <a href="#seccion11" data-scroll-spy>Sorteo digital</a>
           <a href="#seccion12" data-scroll-spy>Responsive slider</a>
           <a href="#seccion13" data-scroll-spy>Vídeo inteligente</a>
-          <a href="#seccion14" data-scroll-spy>Sección 14</a>
+          <a href="#seccion14" data-scroll-spy>Validaciones de formulario</a>
           <a href="#seccion15" data-scroll-spy>Sección 15</a>
         </nav>
       </div>
@@ -235,7 +235,14 @@
       </section>
 
       <section id="seccion14" class="section" data-scroll-spy>
-        <h2>Sección 14</h2>
+        <h2>Validaciones de formulario</h2>
+        <form class="contact_form">
+          <legend>Envíanos tus comentarios</legend>
+          <input type="text" name="name" placeholder="Escribe tu nombre" 
+          title="Nombre sólo acepta letras y espacios en blanco" 
+          pattern="^[A-Za-zÁÉÍÓUáéíóúÜü\s]+$" required>
+          <input type="submit" value="Enviar">
+        </form>
       </section>
 
       <section id="seccion15" class="section" data-scroll-spy>
