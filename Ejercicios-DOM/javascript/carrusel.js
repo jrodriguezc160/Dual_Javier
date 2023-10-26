@@ -5,5 +5,17 @@ export default function slider() {
   $prevBtn = d.querySelector(".slider-btns.prev"),
   $slides = d.querySelectorAll(".slide");
 
-  
+  let i = 0;
+
+  d.addEventListener("click" e => {
+    if (e.target === $prevBtn) {
+        e.preventDefault();
+        $slides[i].classList.remove("active");
+        i--;
+
+        if (i<0) {i = $slides.length - 1;}
+
+
+    }
+  })
 }
