@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicios del DOM</title>
-    <link rel="stylesheet" href="css/styles.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css"/>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css"
+    />
     <script src="index_dom.js" type="module"></script>
   </head>
 
@@ -14,7 +17,16 @@
       <h1>Ejercicios del DOM</h1>
     </header>
 
-    <button class="panel-btn hamburger hamburger--vortex" type="button" style="background: var(--blue-1); display: flex; justify-content: center; align-items: center;">
+    <button
+      class="panel-btn hamburger hamburger--vortex"
+      type="button"
+      style="
+        background: var(--blue-1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -29,7 +41,9 @@
           <a href="#seccion4" data-scroll-spy>Cuenta regresiva</a>
           <a href="#seccion5" data-scroll-spy>Responsive Design con JS</a>
           <a href="#seccion6" data-scroll-spy>Responsive tester</a>
-          <a href="#seccion7" data-scroll-spy>Detección de dispositivos (user agent)</a>
+          <a href="#seccion7" data-scroll-spy
+            >Detección de dispositivos (user agent)</a
+          >
           <a href="#seccion8" data-scroll-spy>Detección de la cámara web</a>
           <a href="#seccion9" data-scroll-spy>Geolocalización</a>
           <a href="#seccion10" data-scroll-spy>Filtros de búsquedas</a>
@@ -77,35 +91,37 @@
           <div class="ball"></div>
         </article>
       </section>
-      
+
       <section id="seccion4" class="section" data-scroll-spy>
         <h2>Cuenta regresiva</h2>
-        Faltan:<br><br>
+        Faltan:<br /><br />
         <div id="cuentaRegresivaContenedor"></div>
       </section>
 
       <section id="seccion5" class="section" data-scroll-spy>
-        <h2>Responsive Design con JS</h2><br>
-        <div id="youtube"></div><br>
+        <h2>Responsive Design con JS</h2>
+        <br />
+        <div id="youtube"></div>
+        <br />
         <div id="gmaps"></div>
       </section>
 
       <section id="seccion6" class="section" data-scroll-spy>
         <h2>Responsive tester</h2>
         <form id="responsive-tester">
-          <input type="url" name="direccion" placeholder="URL" required>
-          <br><br>
-          <input type="text" name="ancho" placeholder="Ancho" required>
-          <br><br>
-          <input type="text" name="alto" placeholder="Alto" required>
-          <br><br>
-          <input type="submit" name="probar" value="Probar">
-          <input type="button" name="cerrar" value="Cerrar">
+          <input type="url" name="direccion" placeholder="URL" required />
+          <br /><br />
+          <input type="text" name="ancho" placeholder="Ancho" required />
+          <br /><br />
+          <input type="text" name="alto" placeholder="Alto" required />
+          <br /><br />
+          <input type="submit" name="probar" value="Probar" />
+          <input type="button" name="cerrar" value="Cerrar" />
         </form>
       </section>
 
       <section id="seccion7" class="section" data-scroll-spy>
-        <h2>Detección de dispositivos<br>(user agent)</h2>
+        <h2>Detección de dispositivos<br />(user agent)</h2>
         <div id="user-device"></div>
       </section>
 
@@ -121,43 +137,67 @@
 
       <section id="seccion10" class="section" data-scroll-spy>
         <h2>Filtros de búsquedas</h2>
-        <input type="search" placeholder="Buscar..." class="card-filter">
-        <br>
+        <input type="search" placeholder="Buscar..." class="card-filter" />
+        <br />
 
-          <article class="cards">
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?tech" alt="Tech">
-              <figcaption>Tech</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?nature" alt="Nature">
-              <figcaption>Nature</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?puppies" alt="Puppies">
-              <figcaption>Puppies</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?kitten" alt="Kittens">
-              <figcaption>Kittens</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?sports" alt="Sports">
-              <figcaption>Sports</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?music" alt="Music">
-              <figcaption>Music</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?kites" alt="Kites">
-              <figcaption>Kites</figcaption>
-            </figure>
-            <figure class="card">
-              <img src="https://source.unsplash.com/random/800x800/?kids" alt="Kids">
-              <figcaption>Kids</figcaption>
-            </figure>
-          </article>
+        <article class="cards">
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?tech"
+              alt="Tech"
+            />
+            <figcaption>Tech</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?nature"
+              alt="Nature"
+            />
+            <figcaption>Nature</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?puppies"
+              alt="Puppies"
+            />
+            <figcaption>Puppies</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?kitten"
+              alt="Kittens"
+            />
+            <figcaption>Kittens</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?sports"
+              alt="Sports"
+            />
+            <figcaption>Sports</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?music"
+              alt="Music"
+            />
+            <figcaption>Music</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?kites"
+              alt="Kites"
+            />
+            <figcaption>Kites</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="https://source.unsplash.com/random/800x800/?kids"
+              alt="Kids"
+            />
+            <figcaption>Kids</figcaption>
+          </figure>
+        </article>
       </section>
 
       <section id="seccion11" class="section" data-scroll-spy>
@@ -180,43 +220,47 @@
 
       <section id="seccion12" class="section" data-scroll-spy>
         <h2>Responsive slider</h2>
-        <br>
+        <br />
         <div class="slider">
           <div class="slider-slides">
             <div class="slider-slide active">
-              <img src="https://cdn.theathletic.com/app/uploads/2023/10/04020934/GettyImages-1715814678-1536x1059.jpg" alt="Soccer">
+              <img
+                src="https://cdn.theathletic.com/app/uploads/2023/10/04020934/GettyImages-1715814678-1536x1059.jpg"
+                alt="Soccer"
+              />
             </div>
 
             <div class="slider-slide">
               <h4>Diapositiva 2</h4>
-              <p>Empezamos la semana adquiriendo conocimientos teóricos sobre JSON y las APIs, que veremos más adelante. Después de eso empezamos a estudiar el DOM, sobre el cual vimos los siguientes contenidos:
-                Nodos, elementos y selectores
-                Atributos y Data-Attributes
-                Estilos y variables CSS
-                Clases CSS
-                Texto y HTML
-                Traversing
-                Creación de Elementos y Fragmentos
-                Templates HTML
-                Modificación de elementos</p>
+              <p>
+                Empezamos la semana adquiriendo conocimientos teóricos sobre
+                JSON y las APIs, que veremos más adelante. Después de eso
+                empezamos a estudiar el DOM, sobre el cual vimos los siguientes
+                contenidos: Nodos, elementos y selectores Atributos y
+                Data-Attributes Estilos y variables CSS Clases CSS Texto y HTML
+                Traversing Creación de Elementos y Fragmentos Templates HTML
+                Modificación de elementos
+              </p>
             </div>
 
             <div class="slider-slide">
-              <img src="https://source.unsplash.com/random/1000x1000/?stadium,night" alt="Stadium">
+              <img
+                src="https://source.unsplash.com/random/1000x1000/?stadium,night"
+                alt="Stadium"
+              />
             </div>
 
             <div class="slider-slide">
               <h4>Diapositiva 2</h4>
-              <p>Empezamos la semana adquiriendo conocimientos teóricos sobre JSON y las APIs, que veremos más adelante. Después de eso empezamos a estudiar el DOM, sobre el cual vimos los siguientes contenidos:
-                Nodos, elementos y selectores
-                Atributos y Data-Attributes
-                Estilos y variables CSS
-                Clases CSS
-                Texto y HTML
-                Traversing
-                Creación de Elementos y Fragmentos
-                Templates HTML
-                Modificación de elementos</p>
+              <p>
+                Empezamos la semana adquiriendo conocimientos teóricos sobre
+                JSON y las APIs, que veremos más adelante. Después de eso
+                empezamos a estudiar el DOM, sobre el cual vimos los siguientes
+                contenidos: Nodos, elementos y selectores Atributos y
+                Data-Attributes Estilos y variables CSS Clases CSS Texto y HTML
+                Traversing Creación de Elementos y Fragmentos Templates HTML
+                Modificación de elementos
+              </p>
             </div>
           </div>
 
@@ -229,22 +273,55 @@
 
       <section id="seccion13" class="section" data-scroll-spy>
         <h2>Vídeo inteligente</h2>
-        <video src="./assets/video.mp4" muted controls loop data-smart-video></video>
-        <br><br><br><br><br><br><br>
-        <video src="./assets/video.mp4" muted controls loop data-smart-video></video>
+        <video
+          src="./assets/video.mp4"
+          muted
+          controls
+          loop
+          data-smart-video
+        ></video>
+        <br /><br /><br /><br /><br /><br /><br />
+        <video
+          src="./assets/video.mp4"
+          muted
+          controls
+          loop
+          data-smart-video
+        ></video>
       </section>
 
       <section id="seccion14" class="section" data-scroll-spy>
         <h2>Validaciones de formulario</h2>
         <form class="contact_form">
           <legend>Envíanos tus comentarios</legend>
-          <input type="text" name="name" placeholder="Escribe tu nombre" 
-          title="Nombre sólo acepta letras y espacios en blanco" 
-          pattern="^[A-Za-zÁÉÍÓUáéíóúÜü\s]+$" required>
-          <input type="email" name="email" placeholder="Escribe tu email" 
-          title="Email incorrecto" 
-          pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
-          <input type="submit" value="Enviar">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Escribe tu nombre"
+            title="Nombre sólo acepta letras y espacios en blanco"
+            pattern="^[A-Za-zÁÉÍÓUáéíóúÜü\s]+$"
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Escribe tu email"
+            title="Email incorrecto"
+            pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+            required
+          />
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Asunto a tratar"
+            title="El asunto es requerido"
+            required
+          />
+
+          <input type="submit" value="Enviar" />
         </form>
       </section>
 
@@ -253,12 +330,20 @@
       </section>
     </main>
 
-    <button class="scroll-top-btn hidden">&#11014</button>
+    <button class="scroll-top-btn hidden">&#11014;</button>
     <button class="dark-theme-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.5rem"
+        height="1.5rem"
+        fill="currentColor"
+        class="bi bi-moon-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        />
       </svg>
     </button>
-
-  </bodydata-dark>
+  </body>
 </html>
