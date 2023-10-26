@@ -7,6 +7,7 @@ export default function slider() {
 
   let i = 0;
 
+  // Prev
   d.addEventListener("click", (e) => {
     if (e.target === $prevBtn) {
       e.preventDefault();
@@ -21,6 +22,7 @@ export default function slider() {
     }
   });
 
+  // Next
   d.addEventListener("click", (e) => {
     if (e.target === $nextBtn) {
       e.preventDefault();
