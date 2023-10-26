@@ -44,7 +44,7 @@ export default function contactFormValidations() {
   // Submit
 
   d.addEventListener("submit", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     alert("Enviando formulario...");
 
     const $loader = d.querySelector(".contact-form-loader"),
