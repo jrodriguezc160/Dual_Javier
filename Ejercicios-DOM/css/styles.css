@@ -439,7 +439,6 @@ input:hover {
   order: 1;
 }
 
-/* External CSS File (styles.css) */
 ul {
   list-style-type: none;
   padding: 0;
@@ -478,7 +477,40 @@ li {
   transition: opacity 1s ease;
 }
 
+.slider-slide img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
 .slider-slide.active {
   opacity: 1;
   visibility: visible;
+}
+
+.slider-btns {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-size: 3rem;
+}
+
+.slider a {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0px;
+  text-decoration: none;
+  background-color: var(--blue-2);
+  color: var(--black-1);
+  transition: all 0.3 ease;
+}
+
+.slider a:hover {
+  color: var(--blue-1);
 }
