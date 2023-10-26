@@ -15,7 +15,7 @@ export default function slider() {
 
         if (i<0) {i = $slides.length - 1;}
 
-
+        $slides[i].classList.add("active")
     }
   })
 }
