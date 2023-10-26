@@ -10,13 +10,16 @@ export default function scrollSpy() {
       // console.log(entry)
       const id = entry.target.getAttribute("id");
       if (entry.isIntersecting) {
-        d.querySelector(`a[data-scroll-spy][href="#${id}"]`);
-      } else {
+        d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.add("active")
+    } else {
+          d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.remove("active")
       }
     });
   };
 
-  const observer = new IntersectionObserver(cb, {});
+  const observer = new IntersectionObserver(cb, {
+    threshold: .5
+  });
 
   $sections.forEach((el) => observer.observe(el));
 }
