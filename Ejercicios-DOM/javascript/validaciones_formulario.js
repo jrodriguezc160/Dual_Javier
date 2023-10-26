@@ -26,7 +26,7 @@ export default function contactFormValidations() {
 
         let regex = new RegExp(pattern);
 
-        return !regex.exec($input.value)
+        return !regex.exec($input.value) // Si no coincide con el patrón se activa la clase que señala el error
           ? d.getElementById($input.name).classList.add("is-active")
           : d.getElementById($input.name).classList.remove("is-active");
         }
