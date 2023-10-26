@@ -179,7 +179,8 @@ a:hover {
 }
 
 .boton,
-input, #winner-btn {
+input,
+#winner-btn {
   min-width: fit-content;
   width: 125px;
   padding: 7px 15px;
@@ -450,4 +451,27 @@ li {
   margin: 0 auto;
   text-align: center; /* If you want text within list items aligned to the left */
   margin-bottom: 10px; /* Optional: Add some spacing between list items */
+}
+
+/* Responsive slider */
+
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.slider-slides {
+  position: relative;
+  height: 400px;
+}
+
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: opacity 1s ease;
 }
