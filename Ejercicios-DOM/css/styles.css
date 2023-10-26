@@ -356,6 +356,7 @@ video {
 
   .panel-btn {
     display: none;
+    visibility: hidden;
   }
 
   .menu {
