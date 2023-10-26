@@ -15,6 +15,7 @@ import scrollSpy from "./javascript/scroll_espia.js";
 import draw from "./javascript/sorteo.js";
 import { moveBall, shortcuts } from "./javascript/teclado.js";
 import darkTheme from "./javascript/tema_oscuro.js";
+import contactFormValidations from "./javascript/validaciones_formulario.js";
 import smartVideo from "./javascript/video_inteligente.js";
 
 const d = document;
@@ -57,6 +58,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
   slider();
   scrollSpy();
   smartVideo();
+  contactFormValidations();
 });
 
 darkTheme(".dark-theme-btn", "dark-mode");
