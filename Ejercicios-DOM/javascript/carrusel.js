@@ -7,7 +7,7 @@ export default function slider() {
 
   let i = 0;
 
-  d.addEventListener("click" e => {
+  d.addEventListener("click", e => {
     if (e.target === $prevBtn) {
         e.preventDefault();
         $slides[i].classList.remove("active");
