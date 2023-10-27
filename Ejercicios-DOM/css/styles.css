@@ -102,10 +102,10 @@ video {
 .panel-btn {
   position: fixed;
   z-index: 999;
-  bottom: 1vh;
-  right: 1vw;
-  width: 4rem;
-  height: 4rem;
+  bottom: 2vh;
+  right: 5vw;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   padding: 0;
   display: flex;
@@ -161,10 +161,10 @@ video {
   z-index: 999;
   bottom: 1vh;
   right: calc(4.25rem + 1vw);
-  width: 4rem;
-  height: 4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
   background-color: var(--main-color);
   color: var(--second-color);
@@ -172,6 +172,9 @@ video {
   outline: 0;
   border: 0;
   transition: all 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .scroll-top-btn:hover {
@@ -190,8 +193,8 @@ video {
   z-index: 999;
   bottom: 1vh;
   left: 1vw;
-  width: 4rem;
-  height: 4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   font-size: 2rem;
   font-weight: bold;
@@ -201,6 +204,9 @@ video {
   outline: 0;
   border: 0;
   transition: all 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dark-theme-btn:hover {
@@ -211,6 +217,10 @@ video {
 .dark-mode {
   background-color: var(--second-color);
   color: var(--main-color);
+}
+
+.dark-theme-btn svg {
+  margin: auto;
 }
 
 /* **********     Network Status     ********** */
@@ -459,4 +469,19 @@ video {
     visibility: visible;
     opacity: 1;
   }
+}
+
+/* Estilos propios */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  display: block;
+  margin: 0 auto;
+  text-align: center; /* If you want text within list items aligned to the left */
+  margin-bottom: 10px; /* Optional: Add some spacing between list items */
 }
