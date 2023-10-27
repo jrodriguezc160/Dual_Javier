@@ -160,11 +160,16 @@ video {
 }
 
 /* **********     ScrollTopButton     ********** */
+.btns-bottom-left {
+  bottom: 1vh;
+  left: 1vw;
+}
+
 .scroll-top-btn {
   position: fixed;
   z-index: 999;
   bottom: 1vh;
-  left: 1vw;
+  left: calc(2rem + 2vw);
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -387,11 +392,6 @@ video {
   .menu a.active {
     color: var(--second-color);
     background-color: var(--main-color);
-  }
-
-  .scroll-top-btn {
-    right: initial;
-    left: calc(4.25rem + 1vw);
   }
 }
 
