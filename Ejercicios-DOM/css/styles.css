@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap");
+
 /* **********     Reset CSS     ********** */
 :root {
-  --main-font: sans-serif;
+  --main-font: "Inter", sans-serif;
   --font-size: 16px;
   --main-color: #f7df1e;
   --second-color: #222;
@@ -160,7 +164,7 @@ video {
   position: fixed;
   z-index: 999;
   bottom: 1vh;
-  right: calc(2rem + 1vw);
+  left: 1vw;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -294,7 +298,7 @@ video {
   transition: opacity 1s ease;
 }
 
-.slider-slide img {
+.slider-slide svg {
   height: inherit;
   width: inherit;
   object-fit: cover;
