@@ -8,6 +8,7 @@ import webCam from "./javascript/deteccion_webcam.js";
 import searchFilters from "./javascript/filtro_busquedas.js";
 import getGeolocation from "./javascript/geolocalizacion.js";
 import hamburgerMenu from "./javascript/menu_hamburgesa.js";
+import speechReader from "./javascript/narrador.js";
 import responsiveMedia from "./javascript/objeto_responsive.js";
 import responsiveTester from "./javascript/prueba_responsive.js";
 import clock from "./javascript/reloj.js";
@@ -69,3 +70,5 @@ d.addEventListener("keydown", (e) => {
 });
 
 networkStatus();
+
+speechReader();
