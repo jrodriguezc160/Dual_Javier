@@ -318,7 +318,7 @@ video {
 .slider-btns {
   position: absolute;
   width: 100%;
-  top: calc(50% - 2rem);
+  top: 50%;
   display: flex;
   justify-content: space-between;
   font-size: 3rem;
@@ -326,9 +326,11 @@ video {
 }
 
 .slider a {
-  display: block;
-  width: 4rem;
-  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   border: thin solid #000;
   text-decoration: none;
