@@ -149,6 +149,7 @@ video {
   display: flex;
   min-height: 50vh;
   background-color: var(--second-color);
+  border-radius: 1rem;
 }
 
 .ball {
@@ -157,6 +158,7 @@ video {
   height: 4rem;
   border-radius: 50%;
   background-color: var(--main-color);
+  transition: transform 0.2s ease-out;
 }
 
 /* **********     ScrollTopButton     ********** */
@@ -257,6 +259,8 @@ video {
 }
 
 .card {
+  border-radius: 1rem;
+  overflow: hidden;
   background-color: var(--second-color);
   color: var(--main-color);
   transition: all 0.3s ease-out;
