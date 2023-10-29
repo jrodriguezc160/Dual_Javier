@@ -9,7 +9,8 @@
   --main-color: rgb(195, 198, 230);
   --second-color: #222;
   --main-modal-color: rgb(195, 198, 230);
-  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --second-modal-color: #6d6d6d;
+  --third-modal-color: lightgrey;
   --container-width: 1200px;
 }
 
@@ -49,7 +50,7 @@ video {
   position: sticky;
   z-index: 997;
   top: 0;
-  padding: 1rem;  
+  padding: 1rem;
   background-color: var(--main-modal-color);
   color: var(--second-color);
   border: 1px solid lightgrey;
@@ -132,7 +133,7 @@ video {
 }
 
 .menu a {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   border-radius: 1rem;
   width: inherit;
   display: block;
@@ -269,9 +270,10 @@ video {
 .card {
   border-radius: 1rem;
   overflow: hidden;
-  background-color: var(--second-color);
-  color: var(--main-color);
+  background-color: white;
+  color: var(--second-modal-color);
   transition: all 0.3s ease-out;
+  border: 1px solid lightgrey;
 }
 
 .card:hover {
@@ -284,6 +286,13 @@ video {
 }
 
 .card figcaption {
+  padding: 1rem;
+  background-color: white;
+}
+
+.dark-mode .card figcaption {
+  background-color: var(--second-modal-color);
+  color: var(--third-modal-color);
   padding: 1rem;
 }
 
@@ -527,6 +536,15 @@ textarea {
   background-color: white;
   transition: all 0.3s ease;
   font-family: var(--main-font);
+}
+
+.dark-mode input,
+.dark-mode button.boton,
+.dark-mode select,
+.dark-mode textarea {
+  background: var(--second-modal-color);
+  color: var(--third-modal-color);
+  border: 1px solid var(--third-modal-color);
 }
 
 textarea {
