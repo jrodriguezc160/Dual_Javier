@@ -6,9 +6,9 @@
 :root {
   --main-font: "Inter", sans-serif;
   --font-size: 14px;
-  --main-color: #f7df1e;
+  --main-color: rgb(195, 198, 230);
   --second-color: #222;
-  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --main-modal-color: rgb(195, 198, 230);
   --second-modal-color: rgba(34, 34, 34, 0.85);
   --container-width: 1200px;
 }
@@ -49,8 +49,8 @@ video {
   position: sticky;
   z-index: 997;
   top: 0;
-  padding: 1rem;
-  background-color: white;
+  padding: 1rem;  
+  background-color: var(--main-modal-color);
   color: var(--second-color);
   border: 1px solid lightgrey;
 }
@@ -129,8 +129,9 @@ video {
 }
 
 .menu a {
-  margin-top: 2rem;
-  padding: 1rem;
+  margin-top: 1rem;
+  padding: .5rem;
+  border-radius: 1rem;
   width: inherit;
   display: block;
   font-size: 14px;
