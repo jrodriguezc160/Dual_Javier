@@ -50,8 +50,9 @@ video {
   z-index: 997;
   top: 0;
   padding: 1rem;
-  background-color: var(--main-color);
+  background-color: white;
   color: var(--second-color);
+  border: 1px solid lightgrey;
 }
 
 .header h1 {
@@ -179,20 +180,21 @@ video {
   border-radius: 50%;
   font-size: 1rem;
   font-weight: bold;
-  background-color: var(--main-color);
-  color: var(--second-color);
+  background-color: white;
+  color: lightgrey;
   cursor: pointer;
   outline: 0;
-  border: 0;
   transition: all 0.3s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid lightgrey;
 }
 
 .scroll-top-btn:hover {
-  background-color: var(--second-color);
-  color: var(--main-color);
+  color: #000;
+  border: 1px solid lightgrey;
+  box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
 }
 
 .hidden {
@@ -211,20 +213,21 @@ video {
   border-radius: 50%;
   font-size: 1rem;
   font-weight: bold;
-  background-color: var(--main-color);
-  color: var(--second-color);
+  background-color: white;
+  color: lightgrey;
   cursor: pointer;
   outline: 0;
-  border: 0;
   transition: all 0.3s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid lightgrey;
 }
 
 .dark-theme-btn:hover {
-  background-color: var(--second-color);
-  color: var(--main-color);
+  color: #000;
+  border: 1px solid lightgrey;
+  box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode {
@@ -519,9 +522,12 @@ textarea {
   border: 1px solid lightgrey;
   padding: 0 1rem;
   background-color: white;
+  transition: all 0.3s ease;
+  font-family: var(--main-font);
 }
 
 textarea {
+  padding-top: 1rem;
   border-radius: 1rem;
 }
 
@@ -535,7 +541,7 @@ textarea:hover {
 input:focus,
 button.boton:active,
 select:active,
-textarea:active {
+textarea:focus {
   outline: none;
   border: 1px solid lightgrey;
   box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
