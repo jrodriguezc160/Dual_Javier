@@ -5,7 +5,7 @@
 /* **********     Reset CSS     ********** */
 :root {
   --main-font: "Inter", sans-serif;
-  --font-size: 16px;
+  --font-size: 14px;
   --main-color: #f7df1e;
   --second-color: #222;
   --main-modal-color: rgba(247, 222, 30, 0.85);
@@ -61,7 +61,7 @@ video {
 
 .section {
   padding: 2rem;
-  padding-top: 4rem;
+  padding-top: 12rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -128,10 +128,12 @@ video {
 }
 
 .menu a {
-  padding: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
   width: inherit;
   display: block;
-  font-size: 1.5rem;
+  font-size: 14px;
+  text-align: center;
   text-decoration: none;
   color: var(--main-color);
   transition: all 0.3s ease;
@@ -347,6 +349,10 @@ video {
 }
 
 .slider a:hover {
+  box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+.slider a:hover {
   color: #4d4d4d;
 }
 
@@ -500,11 +506,27 @@ li {
 }
 
 input,
-button.boton {
+button.boton, select, textarea {
   min-height: 2rem;
   min-width: 7rem;
   border-radius: 2rem;
-  border: 0;
+  border: 1px solid lightgrey;
   padding: 0 1rem;
-  background-color: lightgrey;
+  background-color: white;
+}
+
+textarea {
+  border-radius: 1rem;
+}
+
+input:hover,
+button.boton:hover, select:hover, textarea:hover {
+  box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+input:focus,
+button.boton:active, select:active, textarea:active {
+  outline: none;
+  border: 1px solid lightgrey;
+  box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
 }
