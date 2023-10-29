@@ -268,6 +268,10 @@ video {
   transition: all 0.3s ease-out;
 }
 
+.card:hover {
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
 .card img {
   width: 100%;
   height: auto;
@@ -506,7 +510,9 @@ li {
 }
 
 input,
-button.boton, select, textarea {
+button.boton,
+select,
+textarea {
   min-height: 2rem;
   min-width: 7rem;
   border-radius: 2rem;
@@ -520,12 +526,16 @@ textarea {
 }
 
 input:hover,
-button.boton:hover, select:hover, textarea:hover {
+button.boton:hover,
+select:hover,
+textarea:hover {
   box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
 }
 
 input:focus,
-button.boton:active, select:active, textarea:active {
+button.boton:active,
+select:active,
+textarea:active {
   outline: none;
   border: 1px solid lightgrey;
   box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.2);
